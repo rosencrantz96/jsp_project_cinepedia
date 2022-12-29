@@ -6,32 +6,108 @@
 }
 
 .wrap {
-	width: 1200;
+	width: 1500px;
+	height: 800px;
 	margin: 0 auto;
 	background-color: #1C1C1C;
 }
 
-header {
-	height: 300px;
+@font-face {
+	font-family: "Fredericka the Great";
+	src: url("./font/FrederickatheGreat-Regular.ttf")
 }
 
-div img {
-	display:block;
+@font-face {
+	font-family: "GowunDodum";
+	src: url("./font/GowunDodum-Regular.ttf")
+}
+
+header {
+	height: 140px;
+	position: relative; 
+	z-index: 2;
+}
+
+.subWrap {
+	margin: 0 auto;
+	width: 1400px;
+	position: relative;
+	top: -45px;
+	z-index: 1;
+	background-color: #F5F5F5;
+}
+
+header div {
+	margin: 10px;
+}
+
+.headerLogo {
+	width: 1200px;
 	margin: auto;
 }
 
-ul li {
-	list-style: non;
-	float: left;
+div img {
+	display: block;
+	margin: auto;
+	padding: 30px 0 10px 0;
 }
 
-ul {
+.headerMenuWrap {
+	margin: 0 auto;
+}
+
+.headerMenu {
+	/* width: 1200px; */
 	text-align: center;
-	margin:0;
-	padding:0;
+	margin: 0 auto;
+	padding: 30px 30px;
 }
 
-footer {
-	height: 50px;
-	background-color: blueviolet;
+.headerMenu ul {
+	text-align: center;
+	margin: auto;
+	padding: 0 0 0 0;
+	/* width: 1300; */
+	/* position: absolute; */
+}
+
+.headerMenu ul li {
+	list-style: none;
+	display: inline-block;
+	font-size: 65px;
+	margin: 10px;
+	padding: 20px 20px 20px 20px;
+	font-family: "Fredericka the Great", serif;
+}
+
+.headerMenu a {
+	text-decoration-line: none;
+	color: #1C1C1C;
+}
+
+.headerMenuGroup {
+	background-color: #D9D9D9;
+}
+
+
+.main {
+	width: 1200px;
+	height: 480px;
+	margin: 0 auto;
+}
+
+.main section {
+	width: 1140px;
+	height: 350px;
+	margin: 0 auto;
+	padding: 30px;
+	position: relative;
+	top: 10px;
+	background-color: #D9D9D9;
+	/* outline: 1px dotted black; */
+}
+
+.main p {
+	font-family: "GowunDodum", serif;
+	font-size: 30px;
 }
