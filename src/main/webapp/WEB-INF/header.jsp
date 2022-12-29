@@ -8,8 +8,8 @@
 </head>
 <body>
 	<header>
-		<div>
-			<img src="/img/logo.png" alt="cinepedia로고">
+		<div class="wrap">
+			<img src="img/logo.png" alt="cinepedia로고">
 		</div>
 		<div>
 			<nav>

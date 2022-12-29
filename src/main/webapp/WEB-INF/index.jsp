@@ -8,9 +8,7 @@
 </head>
 <body>
 	<div class="wrap">
-		<%@ include file="header.jsp"%>
-		<div class="main">
-			<section>
+	,		<section>
 				<p>cinepedia는 내가 본 영화를 기록할 수 있는 프로그램입니다.</p>
 				<p>내가 본 영화 정보를 입력하고, </p>
 				<p>관람평을 작성할 수 있습니다.</p>

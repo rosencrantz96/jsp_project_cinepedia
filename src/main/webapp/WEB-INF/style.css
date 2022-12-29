@@ -12,7 +12,26 @@
 }
 
 header {
-	top: 20px;
 	height: 300px;
-	
+}
+
+div img {
+	display:block;
+	margin: auto;
+}
+
+ul li {
+	list-style: non;
+	float: left;
+}
+
+ul {
+	text-align: center;
+	margin:0;
+	padding:0;
+}
+
+footer {
+	height: 50px;
+	background-color: blueviolet;
 }
