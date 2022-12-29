@@ -1,0 +1,55 @@
+/* 초기화 */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrap {
+    /* overflow: hidden; */
+    /* main의 width랑 비슷하게 주면 됨 */
+    /* min-width: 1200px; */
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* height를 하나씩 줍니다 */
+
+header {
+    height: 200px;
+    background-color: aqua;
+}
+
+main {
+    /* 굳이 heigh를 지정하지 않아도 됨...이유는 졸다가 못들음 ㅠㅠ */
+    width: 1200px;
+    /* 가운데 정렬 */
+    margin: 0 auto; 
+    /* ★자식태그에 float를 쓰면 부모태그에 overflow:hidden을 준다 (안그러면 올라옴) */
+    overflow: hidden;
+}
+
+/* 레프트 사이드와 라이트 사이드는 메인 1200px 안에 들어와야 함 */
+.left_side {
+    float: left;
+    width: 900px;
+    background-color: aquamarine;
+    /* 섹션같은 부분은 컨텐츠에 따라서 height가 자동을 조절되니까 꼭 넣어줄 필요는 없음 */
+    height: 2000px;
+}
+
+.right_side {
+    float: right;
+    width: 300px;
+    background-color: beige;
+    height: 2000px;
+}
+
+footer {
+    height: 500px;
+    background-color: blueviolet;
+}
+
+/* 섹션이 너무 붙어있으니까 마진을 줘서 떨어트리기 */
+section {
+    margin: 20px 0;
+}
