@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<%--헤더랑 로고 없애기 --%>
 	<div class="wrap">
 		<header>
 			<div class="headerLogo">
