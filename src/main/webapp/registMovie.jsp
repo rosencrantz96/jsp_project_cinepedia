@@ -13,9 +13,9 @@
 			<div class="headerMenuWrap">
 				<nav class="headerMenu">
 					<ul class="headerMenuGroup">
-						<li><a href="#">MOVIE</a></li>
-						<li><a href="#">REVIEW</a></li>
-						<li><a href="#">LIST/EDIT</a></li>
+						<li><a href="registMovie">MOVIE</a></li>
+						<li><a href="registReview">REVIEW</a></li>
+						<li><a href="movieList">LIST/EDIT</a></li>
 						<li><a href="home">HOME</a></li>
 					</ul>
 				</nav>
@@ -27,31 +27,31 @@
 							<table>
 								<tr>
 									<th>영화 제목 :</th>
-									<td><input type="text" class="underline" /></td>
+									<td><input type="text" name="m_title" class="underline" /></td>
 								</tr>
 								<tr>
 									<th>주 연 :</th>
-									<td><input type="text" class="underline" /></td>
+									<td><input type="text" name="m_actor" class="underline" /></td>
 								</tr>
 								<tr>
 									<th>감 독 :</th>
-									<td><input type="text" class="underline" /></td>
+									<td><input type="text" name="m_director" class="underline" /></td>
 								</tr>
 								<tr>
 									<th>국 가 :</th>
-									<td><input type="text" class="underline" /></td>
+									<td><input type="text" name="m_nation" class="underline" /></td>
 								</tr>
 								<tr>
 									<th>영화 등급 :</th>
-									<td><input type="text" class="underline" /></td>
+									<td><input type="text" name="m_grade" class="underline" /></td>
 								</tr>
 								<tr>
 									<th>장 르 :</th>
-									<td><input type="text" class="underline" /></td>
+									<td><input type="text" name="m_genre" class="underline" /></td>
 								</tr>
 								<tr>
 									<th>개봉 일자 :</th>
-									<td><input type="date" class="underline" /></td>
+									<td><input type="date" name="m_date" class="underline" /></td>
 								</tr>
 							</table>
 						</div>

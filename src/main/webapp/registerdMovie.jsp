@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +14,9 @@
 			<div class="headerMenuWrap">
 				<nav class="headerMenu">
 					<ul class="headerMenuGroup">
-						<li><a href="#">MOVIE</a></li>
-						<li><a href="#">REVIEW</a></li>
-						<li><a href="#">LIST/EDIT</a></li>
+						<li><a href="registMovie">MOVIE</a></li>
+						<li><a href="registReview">REVIEW</a></li>
+						<li><a href="movieList">LIST/EDIT</a></li>
 						<li><a href="home">HOME</a></li>
 					</ul>
 				</nav>

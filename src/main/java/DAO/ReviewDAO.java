@@ -3,6 +3,9 @@ package DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 public class ReviewDAO {
 	final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
 	final String JDBC_URL = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -15,8 +18,13 @@ public class ReviewDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		return conn;
+
+		return conn; 
+	}
+
+	public int insertMovie(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }
