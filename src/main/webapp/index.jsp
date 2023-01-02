@@ -1,27 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<link rel="stylesheet" href="style.css">
+<title>Insert title here</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<%--헤더랑 로고 없애기 --%>
 	<div class="wrap">
-		<header>
-			<div class="headerLogo">
-				<img src="./img/logo.png" alt="cinepedia로고">
-			</div>
-		</header>
 		<div class="subWrap">
 			<div class="headerMenuWrap">
 				<nav class="headerMenu">
-					<ul class="headerMenuGroup">
+					<ul class="#">
 						<li><a href="#">MOVIE</a></li>
 						<li><a href="#">REVIEW</a></li>
-						<li><a href="#">LIST/EDIT</a></li>
+						<li><a href="#"	>LIST/EDIT</a></li>
 						<li><a href="home">HOME</a></li>
 					</ul>
 				</nav>
