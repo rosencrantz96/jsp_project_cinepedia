@@ -2,7 +2,11 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,15 +14,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.ReviewDAO;
+import DTO.Movie;
 
 
 @WebServlet("/")
 public class ReviewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public ReviewController() {
-        super();
-    }
+	private ReviewDAO dao;
+	private ServletContext ctx;
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		
+		dao = new ReviewDAO();
+		ctx = getServletContext();
+	}
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,35 +48,45 @@ public class ReviewController extends HttpServlet {
 		String command = request.getServletPath();
 		String site = null;
 		
-		ReviewDAO review = new ReviewDAO();
-		
 		switch(command) {
 		case "/home": 
 			site = "index.jsp";
 			break;
-		case "/voteM":
-			int result = review.insertMovie(request, response);
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			if(result==1) {
-				out.println("<script>");
-				out.println("alert('영화 정보가 정상적으로 등록 되었습니다!'); location.href='" + context + "';");
-				out.println("</script>");
-				out.flush();
-			} else {
-				out.println("<script>");
-				out.println("alert('등록실패!'); location.href='" + context + "';'");
-				out.println("</script>");
-				out.flush();
-			}
+		case "/insertMovie":
+			site = insertMovie(request);
 			break;
-		case "/registMember":
-			site = "registMember.jsp";
-			break;
-			
 		}
 		
-		getServletContext().getRequestDispatcher("/" + site).forward(request, response);
+		if (site.startsWith("redirect:/")) {
+			String rview = site.substring("redirect:/".length());
+			System.out.println(rview);
+			response.sendRedirect(rview);
+		} else {
+			ctx.getRequestDispatcher("/" + site).forward(request, response);
+		}
 	}
+
+
+	public String insertMovie(HttpServletRequest request) {
+		Movie m = new Movie();
+		
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("영화 등록 과정에서 문제 발생");
+			try {
+				String encodeName = URLEncoder.encode("영화가 정상적으로 등록되지 않았습니다!", "UTF-8");
+				return "redirect:/home?error=" + encodeName;
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+		} 
+		
+		return "redirect:/home";
+	}
+
+
+
 
 }

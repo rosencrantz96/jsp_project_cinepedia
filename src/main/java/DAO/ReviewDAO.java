@@ -2,9 +2,15 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import DTO.Movie;
+import DTO.Review;
 
 public class ReviewDAO {
 	final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
@@ -21,10 +27,11 @@ public class ReviewDAO {
 
 		return conn; 
 	}
-
-	public int insertMovie(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	
+	public void insertMovie(Movie m) throws Exception {
+		Connection conn = open();
+		String sql = "";
 	}
 	
 }
