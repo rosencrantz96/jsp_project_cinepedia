@@ -17,6 +17,8 @@
 							<dt>|영화 제목|</dt>
 							<dd>${review.m_title}</dd>
 						</dl>
+					</div>
+					<div class="reviewHeader">
 						<dl>
 							<dt>|리뷰 제목 입력|</dt>
 							<dd>

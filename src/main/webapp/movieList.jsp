@@ -13,9 +13,9 @@
 			<div class="headerMenuWrap">
 				<nav class="headerMenu">
 					<ul class="headerMenuGroup">
-						<li><a href="registMovie">MOVIE</a></li>
-						<li><a href="registReview">REVIEW</a></li>
-						<li><a href="movieList">LIST/EDIT</a></li>
+						<li><a href="#">MOVIE</a></li>
+						<li><a href="#">REVIEW</a></li>
+						<li><a href="#">LIST/EDIT</a></li>
 						<li><a href="home">HOME</a></li>
 					</ul>
 				</nav>
@@ -25,7 +25,7 @@
 					<table class="board_list">
 						<thead>
 							<tr>
-								<th><input type="checkbox"></th>
+								<!-- <th><input type="checkbox"></th> -->
 								<th>번호</th>
 								<th>영화 제목</th>
 								<th>리뷰 제목</th>
@@ -34,7 +34,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td><input type="checkbox"></td>
+								<!-- <td><input type="checkbox"></td> -->
 								<td class="title"><a
 									href="./view?board_no=${board.board_no}">${board.title}</a></td>
 								<td>${board.user_id}</td>
@@ -44,6 +44,9 @@
 						</tbody>
 					</table>
 				</section>
+				  <div class="btn">
+					<a href="#">선택삭제</a>
+				  </div>
 			</div>
 		</div>
 	</div>
