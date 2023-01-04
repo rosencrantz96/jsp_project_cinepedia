@@ -10,7 +10,7 @@ public class Movie {
 	private String m_nation; // 국가 
 	private String m_grade; // 영화 등급 
 	private String m_genre; // 장르 
-	private Date m_date; // 개봉일자 
+	private String m_date; // 개봉일자 
 	
 	
 	public int getM_no() {
@@ -55,10 +55,10 @@ public class Movie {
 	public void setM_genre(String m_genre) {
 		this.m_genre = m_genre;
 	}
-	public Date getM_date() {
+	public String getM_date() {
 		return m_date;
 	}
-	public void setM_date(Date m_date) {
+	public void setM_date(String m_date) {
 		this.m_date = m_date;
 	}
 	

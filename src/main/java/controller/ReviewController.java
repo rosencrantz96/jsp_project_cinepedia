@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.beanutils.BeanUtils;
+
 import DAO.ReviewDAO;
 import DTO.Movie;
 
@@ -52,9 +54,26 @@ public class ReviewController extends HttpServlet {
 		case "/home": 
 			site = "index.jsp";
 			break;
-		case "/insertMovie":
-			site = insertMovie(request);
+		case "/registMovie":
+			site = "registMovie.jsp";
 			break;
+		case "/registReview":
+			site = "registReview.jsp";
+			break;
+		case "/movieList":
+			site = "movieList.jsp";
+			break;
+		case "/registerdMovie":
+			site = "registerdMovie.jsp";
+			break;
+		// [movie]를 누르면 registMovie.jsp를 보여준다. 
+//		case "/writeMovie":
+//			site = "registMovie.jsp";
+//			break;
+//		// insert 기능 (영화 정보 등록) 
+//		case "/insertMovie":
+//			site = insertMovie(request);
+//			break;
 		}
 		
 		if (site.startsWith("redirect:/")) {
@@ -71,7 +90,8 @@ public class ReviewController extends HttpServlet {
 		Movie m = new Movie();
 		
 		try {
-			
+			BeanUtils.populate(m, request.getParameterMap());
+			dao.insertMovie(m);
 		} catch (Exception e) {
 			e.printStackTrace();
 			ctx.log("영화 등록 과정에서 문제 발생");

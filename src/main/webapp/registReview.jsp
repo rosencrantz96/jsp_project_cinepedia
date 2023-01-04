@@ -11,7 +11,7 @@
 	<div class="reWrap">
 		<div class="reSubWrap">
 			<section>
-				<form name="frm" method="post" action="regist">
+				<form name="frm" method="post" action="registReview">
 					<div class="reviewHeader">
 						<dl>
 							<dt>|영화 제목|</dt>
@@ -39,10 +39,10 @@
 			</section>
 			<div class="rbtn">
 				<div class="Rbtn">
-					<a href="#">정보수정</a>
+					<a href="movieList">등록</a>
 				</div>
 				<div class="Rbtn">
-					<a href="#">리뷰쓰기</a>
+					<a href="home">취소</a>
 				</div>
 			</div>
 		</div>

@@ -29,39 +29,39 @@
 					<div class="movieInfo">
 						<dl>
 							<dt>영화 제목:</dt>
-							<dd>${board.수정해라}</dd>
+							<dd>내용</dd>
 						</dl>
 						<dl>
 							<dt>배우:</dt>
-							<dd>${board.수정해라}</dd>
+							<dd>내용</dd>
 						</dl>
 						<dl>
 							<dt>감독:</dt>
-							<dd>${board.수정해라}</dd>
+							<dd>내용</dd>
 						</dl>
 						<dl>
 							<dt>국가:</dt>
-							<dd>${board.수정해라}</dd>
+							<dd>내용</dd>
 						</dl>
 						<dl>
 							<dt>등급:</dt>
-							<dd>${board.수정해라}</dd>
+							<dd>내용</dd>
 						</dl>
 						<dl>
 							<dt>장르:</dt>
-							<dd>${board.수정해라}</dd>
+							<dd>내용</dd>
 						</dl>
 						<dl>
 							<dt>개봉 일자:</dt>
-							<dd>${board.수정해라}</dd>
+							<dd>내용</dd>
 						</dl>
 					</div>
 				</section>
 				<div class="btn">
-					<a href="#">정보수정</a>
+					<a href="editMovieInfo">정보수정</a>
 				</div>
 				<div class="btn">
-					<a href="#">리뷰쓰기</a>
+					<a href="registReview">리뷰쓰기</a>
 				</div>
 			</div>
 		</div>

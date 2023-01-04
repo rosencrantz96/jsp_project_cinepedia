@@ -14,8 +14,8 @@
 			<div class="headerMenuWrap">
 				<nav class="headerMenu">
 					<ul class="headerMenuGroup">
-						<li><a href="registerMovie">MOVIE</a></li>
-						<li><a href="registerRei">REVIEW</a></li>
+						<li><a href="registMovie">MOVIE</a></li>
+						<li><a href="registReview">REVIEW</a></li>
 						<li><a href="movieList">LIST/EDIT</a></li>
 						<li><a href="home">HOME</a></li>
 					</ul>

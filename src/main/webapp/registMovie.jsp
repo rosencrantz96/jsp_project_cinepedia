@@ -15,14 +15,14 @@
 					<ul class="headerMenuGroup">
 						<li><a href="registMovie">MOVIE</a></li>
 						<li><a href="registReview">REVIEW</a></li>
-						<li><a href="movieList">LIST/EDIT</a></li>
+						<li><a href="movieList"	>LIST/EDIT</a></li>
 						<li><a href="home">HOME</a></li>
 					</ul>
 				</nav>
 			</div>
 			<div class="main">
 				<section>
-					<form name="" method="post" action="regist">
+					<form name="frm" method="post" action="registMovie">
 						<div class="registM">
 							<table>
 								<tr>
@@ -58,7 +58,7 @@
 					</form>
 				</section>
 				<div class="btn">
-					<a href="#">등록하기</a>
+					<a href="registerdMovie">등록하기</a>
 				</div>
 			</div>
 		</div>

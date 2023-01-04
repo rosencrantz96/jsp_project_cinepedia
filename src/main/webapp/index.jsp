@@ -12,10 +12,10 @@
 		<div class="subWrap">
 			<div class="headerMenuWrap">
 				<nav class="headerMenu">
-					<ul class="#">
-						<li><a href="#">MOVIE</a></li>
-						<li><a href="#">REVIEW</a></li>
-						<li><a href="#"	>LIST/EDIT</a></li>
+					<ul class="headerMenuGroup">
+						<li><a href="registMovie">MOVIE</a></li>
+						<li><a href="registReview">REVIEW</a></li>
+						<li><a href="movieList"	>LIST/EDIT</a></li>
 						<li><a href="home">HOME</a></li>
 					</ul>
 				</nav>
