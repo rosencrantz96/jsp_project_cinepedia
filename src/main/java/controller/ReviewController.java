@@ -71,9 +71,9 @@ public class ReviewController extends HttpServlet {
 //			site = "registMovie.jsp";
 //			break;
 //		 insert 기능 (영화 정보 등록) 
-//		case "/registMovie":
-//			site = insertMovie(request);
-//			break;
+		case "/registMovie":
+			site = insertMovie(request);
+			break;
 		}
 		
 		if (site.startsWith("redirect:/")) {
