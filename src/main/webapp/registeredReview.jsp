@@ -37,10 +37,10 @@
 			</section>
 			<div class="rbtn">
 				<div class="Rbtn">
-					<a href="#">목록</a>
+					<a href="delete">삭제</a>
 				</div>
 				<div class="Rbtn">
-					<a href="#">수정</a>
+					<a href="editReviewInfo">수정</a>
 				</div>
 			</div>
 		</div>

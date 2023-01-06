@@ -71,10 +71,24 @@ public class ReviewController extends HttpServlet {
 		case "/registReview":
 			site = "registReview.jsp";
 			break;
+		// 리뷰 등록 기능 (제목, 내용 등 내가 작성한 것들이 request 객체에 저장)
 		case "/insertReview":
 			site = insertReview(request);
 			break;
-		case "/movieList":
+		// 영화 정보 수정 기능 
+		case "/editMovieInfo":
+			site = getMovieForEdit(request);
+			break;
+		// 리뷰 정보 수정 기능
+		case "/editReviewInfo":
+			site = getReviewForEdit(request);
+			break;
+		// 리뷰 삭제 기능
+		case "/delete":
+			site = deleteReview(request);
+			break;
+		// 영화+리뷰 목록 조회 페이지
+		case "/list":
 			site = "movieList.jsp";
 			break;
 		}
@@ -88,7 +102,6 @@ public class ReviewController extends HttpServlet {
 		}
 	}
 
-	
 
 	public String insertMovie(HttpServletRequest request) {
 		Movie m = new Movie();
@@ -128,7 +141,24 @@ public class ReviewController extends HttpServlet {
 			}
 		}
 
-		// 리뷰 등록 후 영화 리스트 페이지로 이동
-		return "redirect:/movieList";
+		// 리뷰 등록 후 리뷰 정보 페이지로 이동
+		return "redirect:/registerdReview";
 	}
+	
+	public String getMovieForEdit(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getReviewForEdit(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String deleteReview(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }

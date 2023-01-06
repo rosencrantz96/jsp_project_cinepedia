@@ -49,7 +49,7 @@ public class ReviewDAO {
 
 	public void insertReview(Review r) throws Exception {
 		Connection conn = open();
-		String sql = "insert into review (r_title, r_grade, r_content) values (?, ?, ?)";
+		String sql = "insert into review (r_title, m_no, r_grade, r_content) values (?, review_seq.nextval, ?, ?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
 		try(conn; pstmt) {

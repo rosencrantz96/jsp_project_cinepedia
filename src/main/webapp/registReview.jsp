@@ -39,10 +39,10 @@
 			</section>
 			<div class="rbtn">
 				<div class="Rbtn">
-					<a href="movieList">등록</a>
+					<a href="registerdReview">등록</a>
 				</div>
 				<div class="Rbtn">
-					<a href="registerdMovie">취소</a>
+					<a href="home">취소</a>
 				</div>
 			</div>
 		</div>
