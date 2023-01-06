@@ -58,7 +58,7 @@
 					</form>
 				</section>
 				<div class="btn">
-					<a href="registerdMovie">등록하기</a>
+					<a href="insertMovie">등록하기</a>
 				</div>
 			</div>
 		</div>

@@ -31,7 +31,7 @@ public class ReviewDAO {
 	
 	public void insertMovie(Movie m) throws Exception {
 		Connection conn = open();
-		String sql = "insert into movie values(movei_seq, ?, ?, ?, ?, ?, ?, to_char(?, 'YYYY-MM-DD')) ";
+		String sql = "insert into movie values(movei_seq.nextval, ?, ?, ?, ?, ?, ?, to_char(?, 'YYYY-MM-DD')) ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
 		try(conn; pstmt) {
@@ -42,6 +42,20 @@ public class ReviewDAO {
 			pstmt.setString(5, m.getM_grade());
 			pstmt.setString(6, m.getM_genre());
 			pstmt.setString(7, m.getM_date());
+			pstmt.executeUpdate();
+		}
+	}
+
+
+	public void insertReview(Review r) throws Exception {
+		Connection conn = open();
+		String sql = "insert into review (r_title, r_grade, r_content) values (?, ?, ?)";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		try(conn; pstmt) {
+			pstmt.setString(1, r.getR_title());
+			pstmt.setDouble(2, r.getR_grade());
+			pstmt.setString(3, r.getR_content());
 			pstmt.executeUpdate();
 		}
 	}

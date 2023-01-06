@@ -42,7 +42,7 @@
 					<a href="movieList">등록</a>
 				</div>
 				<div class="Rbtn">
-					<a href="home">취소</a>
+					<a href="registerdMovie">취소</a>
 				</div>
 			</div>
 		</div>

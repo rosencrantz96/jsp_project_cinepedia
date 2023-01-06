@@ -17,7 +17,7 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import DAO.ReviewDAO;
 import DTO.Movie;
-
+import DTO.Review;
 
 @WebServlet("/")
 public class ReviewController extends HttpServlet {
@@ -28,54 +28,57 @@ public class ReviewController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
-		
+
 		dao = new ReviewDAO();
 		ctx = getServletContext();
 	}
 
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		doPro(request, response);
 	}
 
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		doPro(request, response);
 	}
-	
-	protected void doPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doPro(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String context = request.getContextPath();
 		String command = request.getServletPath();
 		String site = null;
-		
-		switch(command) {
-		case "/home": 
+
+		switch (command) {
+		case "/home":
 			site = "index.jsp";
 			break;
+		// 메뉴의 [movie]를 누르면 registMovie.jsp를 보여줌.
 		case "/registMovie":
 			site = "registMovie.jsp";
 			break;
+		// 영화 등록 기능 (제목, 내용 등 내가 작성한 것들이 request 객체에 저장)
+		case "/insertMovie":
+			site = insertMovie(request);
+			break;
+		// 영화 정보 페이지
+		case "/registerdMovie":
+			site = "registerdMovie.jsp";
+			break;
+		// 메뉴의 [review] 누르면 영화 등록 먼저 하라는 알림창 뜨게 수정하기
 		case "/registReview":
 			site = "registReview.jsp";
+			break;
+		case "/insertReview":
+			site = insertReview(request);
 			break;
 		case "/movieList":
 			site = "movieList.jsp";
 			break;
-		case "/registerdMovie":
-			site = "registerdMovie.jsp";
-			break;
-		// [movie]를 누르면 registMovie.jsp를 보여준다. 
-//		case "/writeMovie":
-//			site = "registMovie.jsp";
-//			break;
-//		 insert 기능 (영화 정보 등록) 
-		case "/registMovie":
-			site = insertMovie(request);
-			break;
 		}
-		
+
 		if (site.startsWith("redirect:/")) {
 			String rview = site.substring("redirect:/".length());
 			System.out.println(rview);
@@ -85,10 +88,11 @@ public class ReviewController extends HttpServlet {
 		}
 	}
 
+	
 
 	public String insertMovie(HttpServletRequest request) {
 		Movie m = new Movie();
-		
+
 		try {
 			BeanUtils.populate(m, request.getParameterMap());
 			dao.insertMovie(m);
@@ -101,12 +105,30 @@ public class ReviewController extends HttpServlet {
 			} catch (UnsupportedEncodingException e1) {
 				e1.printStackTrace();
 			}
-		} 
-		
-		return "redirect:/home";
+		}
+
+		// 영화 등록 후 영화 정보 페이지로 이동
+		return "redirect:/registerdMovie";
 	}
 
+	public String insertReview(HttpServletRequest request) {
+		Review r = new Review();
 
+		try {
+			BeanUtils.populate(r, request.getParameterMap());
+			dao.insertReview(r);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("리뷰 등록 과정에서 문제 발생");
+			try {
+				String encodeName = URLEncoder.encode("리뷰가 정상적으로 등록되지 않았습니다!", "UTF-8");
+				return "redirect:/home?error=" + encodeName;
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+		}
 
-
+		// 리뷰 등록 후 영화 리스트 페이지로 이동
+		return "redirect:/movieList";
+	}
 }
