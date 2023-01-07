@@ -14,25 +14,25 @@
 				<form name="frm" method="post" action="regist">
 					<div class="reviewHeader">
 						<dl>
-							<dt>|영화 제목|</dt>
-							<dd>${review.m_title}</dd>
+							<dt>|번호|</dt>
+							<dd>${r.m_no}</dd>
 						</dl>
 					</div>
 					<div class="reviewHeader">
 						<dl>
 							<dt>|리뷰 제목|</dt>
-							<dd>${review.r_title}</dd>
+							<dd>${r.r_title}</dd>
 						</dl>
 						<dl>
 							<dt>|관람 일자|</dt>
-							<dd>${review.m_title}</dd>
+							<dd>${r.m_title}</dd>
 						</dl>
 						<dl>
 							<dt>|내 평점|</dt>
-							<dd>${review.r_grade}</dd>
+							<dd>${r.r_grade}</dd>
 						</dl>
 					</div>
-					<div class="reviewInfo">${review.r_content}</div>
+					<div class="reviewInfo">${r.r_content}</div>
 				</form>
 			</section>
 			<div class="rbtn">
@@ -40,7 +40,7 @@
 					<a href="delete">삭제</a>
 				</div>
 				<div class="Rbtn">
-					<a href="editReviewInfo">수정</a>
+					<a href="editReviewInfo?m_no=${m.m_no}">수정</a>
 				</div>
 			</div>
 		</div>

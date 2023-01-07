@@ -29,36 +29,36 @@
 					<div class="movieInfo">
 						<dl>
 							<dt>영화 제목:</dt>
-							<dd>내용</dd>
+							<dd>${m.m_no}</dd>
 						</dl>
 						<dl>
 							<dt>배우:</dt>
-							<dd>내용</dd>
+							<dd>${m.m_actor}</dd>
 						</dl>
 						<dl>
 							<dt>감독:</dt>
-							<dd>내용</dd>
+							<dd>${m.m_director}</dd>
 						</dl>
 						<dl>
 							<dt>국가:</dt>
-							<dd>내용</dd>
+							<dd>${m.m_nation}</dd>
 						</dl>
 						<dl>
 							<dt>등급:</dt>
-							<dd>내용</dd>
+							<dd>${m.m_grade}</dd>
 						</dl>
 						<dl>
 							<dt>장르:</dt>
-							<dd>내용</dd>
+							<dd>${m.m_genre}</dd>
 						</dl>
 						<dl>
 							<dt>개봉 일자:</dt>
-							<dd>내용</dd>
+							<dd>${m.m_date}</dd>
 						</dl>
 					</div>
 				</section>
 				<div class="btn">
-					<a href="editMovieInfo">정보수정</a>
+					<a href="editMovieInfo?m_no=${m.m_no}">정보수정</a>
 				</div>
 				<div class="btn">
 					<a href="registReview">리뷰쓰기</a>

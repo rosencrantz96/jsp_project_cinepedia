@@ -11,6 +11,8 @@ public class Movie {
 	private String m_grade; // 영화 등급 
 	private String m_genre; // 장르 
 	private String m_date; // 개봉일자 
+	private String r_title; // 리뷰 제목 
+	private double r_grade; // 내 평점 
 	
 	
 	public int getM_no() {
@@ -60,6 +62,18 @@ public class Movie {
 	}
 	public void setM_date(String m_date) {
 		this.m_date = m_date;
+	}
+	public String getR_title() {
+		return r_title;
+	}
+	public void setR_title(String r_title) {
+		this.r_title = r_title;
+	}
+	public double getR_grade() {
+		return r_grade;
+	}
+	public void setR_grade(double r_grade) {
+		this.r_grade = r_grade;
 	}
 	
 	

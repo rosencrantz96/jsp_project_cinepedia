@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<div class="wrap">
+<div class="wrap">
 		<div class="subWrap">
 			<div class="headerMenuWrap">
 				<nav class="headerMenu">
@@ -22,36 +22,36 @@
 			</div>
 			<div class="main">
 				<section>
-					<form name="frm" method="post" action="insertMovie">
+					<form name="frm" method="post" action="updateMovieInfo?m_no=${m.m_no}">
 						<div class="registM">
 							<table>
 								<tr>
 									<th>영화 제목 :</th>
-									<td><input type="text" name="m_title" class="underline" /></td>
+									<td><input type="text" value="${m.m_no}" name="m_title" class="underline" /></td>
 								</tr>
 								<tr>
 									<th>주 연 :</th>
-									<td><input type="text" name="m_actor" class="underline" /></td>
+									<td><input type="text" value="${m.m_actor}" name="m_actor" class="underline" /></td>
 								</tr>
 								<tr>
 									<th>감 독 :</th>
-									<td><input type="text" name="m_director" class="underline" /></td>
+									<td><input type="text" value="${m.m_director}" name="m_director" class="underline" /></td>
 								</tr>
 								<tr>
 									<th>국 가 :</th>
-									<td><input type="text" name="m_nation" class="underline" /></td>
+									<td><input type="text" value="${m.m_nation}" name="m_nation" class="underline" /></td>
 								</tr>
 								<tr>
 									<th>영화 등급 :</th>
-									<td><input type="text" name="m_grade" class="underline" /></td>
+									<td><input type="text" value="${m.m_grade}" name="m_grade" class="underline" /></td>
 								</tr>
 								<tr>
 									<th>장 르 :</th>
-									<td><input type="text" name="m_genre" class="underline" /></td>
+									<td><input type="text" value="${m.m_genre}" name="m_genre" class="underline" /></td>
 								</tr>
 								<tr>
 									<th>개봉 일자 :</th>
-									<td><input type="date" name="m_date" class="underline" /></td>
+									<td><input type="date" value="${m.m_date}"name="m_date" class="underline" /></td>
 								</tr>
 							</table>
 						</div>

@@ -34,20 +34,21 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<!-- <td><input type="checkbox"></td> -->
-								<td class="title"><a
-									href="./view?board_no=${board.board_no}">${board.title}</a></td>
-								<td>${board.user_id}</td>
-								<td>${board.reg_date}</td>
-								<td>${board.views}</td>
-							</tr>
+							<c:forEach var="movie" items="${movieList}" varStatus="status">
+								<tr>
+									<!-- <td><input type="checkbox"></td> -->
+									<td class="title">${m.m_no}</td>
+									<td>${m.m_title}</td>
+									<td>${m.r_title}</td>
+									<td>${m.r_grade}</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</section>
-				  <div class="btn">
-					<a href="#">선택삭제</a>
-				  </div>
+				<div class="btn">
+					<a href="home">홈으로</a>
+				</div>
 			</div>
 		</div>
 	</div>
