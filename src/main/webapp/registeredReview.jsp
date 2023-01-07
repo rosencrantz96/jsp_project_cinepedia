@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<div class="reWrap">
+<div class="reWrap">
 		<div class="reSubWrap">
 			<section>
 				<form name="frm" method="post" action="regist">
@@ -17,15 +17,9 @@
 							<dt>|번호|</dt>
 							<dd>${r.m_no}</dd>
 						</dl>
-					</div>
-					<div class="reviewHeader">
 						<dl>
 							<dt>|리뷰 제목|</dt>
 							<dd>${r.r_title}</dd>
-						</dl>
-						<dl>
-							<dt>|관람 일자|</dt>
-							<dd>${r.m_title}</dd>
 						</dl>
 						<dl>
 							<dt>|내 평점|</dt>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<div class="wrap">
+	 <div class="wrap">
 		<div class="subWrap">
 			<div class="headerMenuWrap">
 				<nav class="headerMenu">
@@ -23,7 +23,7 @@
 			</div>
 			<div class="main">
 				<section>
-					<table class="board_list">
+					<table class="movie_list">
 						<thead>
 							<tr>
 								<!-- <th><input type="checkbox"></th> -->

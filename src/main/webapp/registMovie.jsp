@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<div class="wrap">
+	 <div class="wrap">
 		<div class="subWrap">
 			<div class="headerMenuWrap">
 				<nav class="headerMenu">
@@ -24,7 +24,11 @@
 				<section>
 					<form name="frm" method="post" action="insertMovie">
 						<div class="registM">
-							<table>
+							<table class="registMovieTable">
+								<tr>
+									<th>번호 :</th>
+									<td><input type="text" name="m_no" value="${m.m_no}" class="underline" readonly /></td>
+								</tr>
 								<tr>
 									<th>영화 제목 :</th>
 									<td><input type="text" name="m_title" class="underline" /></td>

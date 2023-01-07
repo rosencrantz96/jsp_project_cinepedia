@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 	<div class="reWrap">
@@ -14,10 +15,9 @@
 					<div class="reviewHeader">
 						<dl>
 							<dt>|영화 제목|</dt>
-							<dd>${r.m_no}</dd>
+							<dd><input type="text" value="${r.m_no}" name="r.title" readonly
+                                class="underlineRT"></dd>
 						</dl>
-					</div>
-					<div class="reviewHeader">
 						<dl>
 							<dt>|리뷰 제목 입력|</dt>
 							<dd>
@@ -28,7 +28,7 @@
 						<dl>
 							<dt>|내 평점 입력|</dt>
 							<dd>
-								<input type="number" value="${r.r_grade}" name="r.grade"
+								<input type="text" value="${r.r_grade}" name="r.grade"
 									class="underlineR">
 							</dd>
 						</dl>

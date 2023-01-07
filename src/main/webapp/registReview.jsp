@@ -8,17 +8,15 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<div class="reWrap">
+	 <div class="reWrap">
 		<div class="reSubWrap">
 			<section>
 				<form name="frm" method="post" action="insertReivew">
 					<div class="reviewHeader">
 						<dl>
 							<dt>|번호|</dt>
-							<dd>${r.m_no}</dd>
+							<dd><input type="text" name="m_no" value="${m.m_no}" class="underlineRT" readonly></dd>
 						</dl>
-					</div>
-					<div class="reviewHeader">
 						<dl>
 							<dt>|리뷰 제목 입력|</dt>
 							<dd>
@@ -28,7 +26,7 @@
 						<dl>
 							<dt>|내 평점 입력|</dt>
 							<dd>
-								<input type="number" name="r.grade" class="underlineR">
+								<input type="text" name="r.grade" class="underlineR">
 							</dd>
 						</dl>
 					</div>
