@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-	 <div class="wrap">
+	<div class="wrap">
 		<div class="subWrap">
 			<div class="headerMenuWrap">
 				<nav class="headerMenu">
@@ -27,7 +27,8 @@
 							<table class="registMovieTable">
 								<tr>
 									<th>번호 :</th>
-									<td><input type="text" value="movie_seq.nextval" class="underline" readonly /></td>
+									<td><input type="text" value="movie_seq.nextval"
+										class="underline" readonly /></td>
 								</tr>
 								<tr>
 									<th>영화 제목 :</th>
@@ -62,10 +63,16 @@
 					</form>
 				</section>
 				<div class="btn">
-					<a href="registerdMovie">등록하기</a>
+					<a onclick="chkForm(); return false;" class="on" >등록하기</a>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script>
+		<c:if test="${error != null}">
+			alert("${error}")
+		</c:if>
+	</script>
+	<script type="text/javascript" src="./script.js"></script>
 </body>
 </html>

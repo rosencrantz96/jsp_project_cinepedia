@@ -37,7 +37,7 @@
 			</section>
 			<div class="rbtn">
 				<div class="Rbtn">
-					<a href="registerdReview">등록</a>
+					<a onclick="chkForm(); return false;" class="on">등록</a>
 				</div>
 				<div class="Rbtn">
 					<a href="home">취소</a>

@@ -77,6 +77,10 @@ public class ReviewController extends HttpServlet {
 		case "/registReview":
 			site = "alert.jsp";
 			break;
+		// [리뷰쓰기]를 누르면 registReivew.jsp를 보여줌.
+		case "/movieReview":
+			site = "registReview.jsp";
+			break;
 		// 리뷰 등록 기능 (제목, 내용 등 내가 작성한 것들이 request 객체에 저장)
 		case "/insertReview":
 			site = insertReview(request);

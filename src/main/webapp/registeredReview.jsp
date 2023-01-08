@@ -8,10 +8,9 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="reWrap">
+	<div class="reWrap">
 		<div class="reSubWrap">
 			<section>
-				<form name="frm" method="post" action="regist">
 					<div class="reviewHeader">
 						<dl>
 							<dt>|번호|</dt>
@@ -27,7 +26,6 @@
 						</dl>
 					</div>
 					<div class="reviewInfo">${r.r_content}</div>
-				</form>
 			</section>
 			<div class="rbtn">
 				<div class="Rbtn">

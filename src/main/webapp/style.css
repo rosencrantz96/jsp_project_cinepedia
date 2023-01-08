@@ -349,3 +349,7 @@ dt, dd {
     border-collapse: separate;
 }
 
+.title > a {
+	text-decoration-line: none;
+	color: #1c1c1c;
+}

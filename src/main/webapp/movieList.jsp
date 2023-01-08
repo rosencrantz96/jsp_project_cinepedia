@@ -38,8 +38,8 @@
 								<tr>
 									<!-- <td><input type="checkbox"></td> -->
 									<td class="title">${m.m_no}</td>
-									<td>${m.m_title}</td>
-									<td>${m.r_title}</td>
+									<td><a href="./registerdMovie?m_no=${m.m_no}" >${m.m_title}</td>
+									<td><a href="./registerdReview?m_no=${m.m_no}">${m.r_title}</td>
 									<td>${m.r_grade}</td>
 								</tr>
 							</c:forEach>
