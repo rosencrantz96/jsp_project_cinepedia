@@ -34,7 +34,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="movie" items="${movieList}" varStatus="status">
+							<c:forEach var="m" items="${movieList}" varStatus="status">
 								<tr>
 									<!-- <td><input type="checkbox"></td> -->
 									<td class="title">${m.m_no}</td>

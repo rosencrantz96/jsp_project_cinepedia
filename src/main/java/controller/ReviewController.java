@@ -57,6 +57,10 @@ public class ReviewController extends HttpServlet {
 		case "/home":
 			site = "index.jsp";
 			break;
+		// 영화+리뷰 목록 조회 페이지
+		case "/list":
+			site = getList(request);
+			break;
 		// 메뉴의 [movie]를 누르면 registMovie.jsp를 보여줌. (영화 등록 창)
 		case "/registMovie":
 			site = "registMovie.jsp";
@@ -97,10 +101,7 @@ public class ReviewController extends HttpServlet {
 		case "/delete":
 			site = deleteReview(request);
 			break;
-		// 영화+리뷰 목록 조회 페이지
-		case "/list":
-			site = getList(request);
-			break;
+
 		}
 
 		if (site.startsWith("redirect:/")) {
@@ -111,8 +112,6 @@ public class ReviewController extends HttpServlet {
 			ctx.getRequestDispatcher("/" + site).forward(request, response);
 		}
 	}
-
-	
 
 	public String insertMovie(HttpServletRequest request) {
 		Movie m = new Movie();
@@ -246,7 +245,7 @@ public class ReviewController extends HttpServlet {
 
 	public String getList(HttpServletRequest request) {
 		List<Movie> list;
-		
+
 		try {
 			list = dao.getList();
 			request.setAttribute("movieList", list);
@@ -255,7 +254,7 @@ public class ReviewController extends HttpServlet {
 			ctx.log("게시판 생성 과정에서 문제 발생");
 			request.setAttribute("error", "게시판 목록이 정상적으로 처리되지 않았습니다!");
 		}
-		
+
 		return "movieList.jsp";
 	}
 }
