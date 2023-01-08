@@ -15,12 +15,12 @@
 
 @font-face {
   font-family: 'Fredericka the Great';
-  src: url('./FrederickatheGreat-Regular.ttf');
+  src: url('./font/FrederickatheGreat-Regular.ttf');
 }
 
 @font-face {
   font-family: 'GowunDodum';
-  src: url('./GowunDodum-Regular.ttf');
+  src: url('./font/GowunDodum-Regular.ttf');
 }
 
 

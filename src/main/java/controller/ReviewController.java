@@ -75,7 +75,7 @@ public class ReviewController extends HttpServlet {
 			break;
 		// 메뉴의 [review] 누르면 영화 등록 먼저 하라는 알림창 뜨게 수정하기
 		case "/registReview":
-			site = "registReview.jsp";
+			site = "alert.jsp";
 			break;
 		// 리뷰 등록 기능 (제목, 내용 등 내가 작성한 것들이 request 객체에 저장)
 		case "/insertReview":
@@ -112,6 +112,7 @@ public class ReviewController extends HttpServlet {
 			ctx.getRequestDispatcher("/" + site).forward(request, response);
 		}
 	}
+	
 
 	public String insertMovie(HttpServletRequest request) {
 		Movie m = new Movie();

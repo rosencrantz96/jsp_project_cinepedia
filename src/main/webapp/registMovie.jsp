@@ -27,7 +27,7 @@
 							<table class="registMovieTable">
 								<tr>
 									<th>번호 :</th>
-									<td><input type="text" name="m_no" value="${m.m_no}" class="underline" readonly /></td>
+									<td><input type="text" value="movie_seq.nextval" class="underline" readonly /></td>
 								</tr>
 								<tr>
 									<th>영화 제목 :</th>
