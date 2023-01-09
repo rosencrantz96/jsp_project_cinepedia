@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@
 							<table class="registMovieTable">
 								<tr>
 									<th>번호 :</th>
-									<td><input type="text" value="movie_seq.nextval"
+									<td><input type="text" value="${m.m_no}"
 										class="underline" readonly /></td>
 								</tr>
 								<tr>
@@ -63,7 +64,7 @@
 					</form>
 				</section>
 				<div class="btn">
-					<a onclick="chkForm(); return false;" class="on" >등록하기</a>
+					<a href="home" onclick="chkForm(); return false;" class="on">등록하기</a>
 				</div>
 			</div>
 		</div>

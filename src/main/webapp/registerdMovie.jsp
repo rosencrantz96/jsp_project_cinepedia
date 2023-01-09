@@ -23,6 +23,7 @@
 			</div>
 			<div class="main">
 				<section>
+				<c:forEach var="m" items="${movieInfo}" varStatus="status">
 					<!-- <div class="moviePoster">
 						<img>
 					</div> -->
@@ -60,6 +61,7 @@
 							<dd>${m.m_date}</dd>
 						</dl>
 					</div>
+				</c:forEach>
 				</section>
 				<div class="btn">
 					<a href="editMovieInfo?m_no=${m.m_no}">정보수정</a>

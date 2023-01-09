@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,19 +30,36 @@ public class ReviewDAO {
 		return conn;
 	}
 
+	public Movie getNumber() throws SQLException  {
+		Connection conn = open();
+		Movie m = new Movie();
+		
+		String sql = "select max(m_no) + 1 from movie "; 
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+		
+		try (conn; pstmt; rs) {
+			if(rs.next()) {
+				m.setM_no(rs.getInt(1));
+			}
+		}
+		
+		return m;
+	}
 	public void insertMovie(Movie m) throws Exception {
 		Connection conn = open();
-		String sql = "insert into movie values(movei_seq.nextval, ?, ?, ?, ?, ?, ?, to_char(?, 'YYYY-MM-DD')) ";
+		String sql = "insert into movie values (?, ?, ?, ?, ?, ?, ?, to_date(?, 'YYYY-MM-DD') ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		try (conn; pstmt) {
-			pstmt.setString(1, m.getM_title());
-			pstmt.setString(2, m.getM_actor());
-			pstmt.setString(3, m.getM_director());
-			pstmt.setString(4, m.getM_nation());
-			pstmt.setString(5, m.getM_grade());
-			pstmt.setString(6, m.getM_genre());
-			pstmt.setString(7, m.getM_date());
+			pstmt.setInt(1, m.getM_no());
+			pstmt.setString(2, m.getM_title());
+			pstmt.setString(3, m.getM_actor());
+			pstmt.setString(4, m.getM_director());
+			pstmt.setString(5, m.getM_nation());
+			pstmt.setString(6, m.getM_grade());
+			pstmt.setString(7, m.getM_genre());
+			pstmt.setString(8, m.getM_date());
 			pstmt.executeUpdate();
 		}
 	}
@@ -181,5 +199,8 @@ public class ReviewDAO {
 		
 		return movieList;
 	}
+
+
+	
 
 }

@@ -65,8 +65,9 @@ public class ReviewController extends HttpServlet {
 			break;
 		// 메뉴의 [movie]를 누르면 registMovie.jsp를 보여줌. (영화 등록 창)
 		case "/registMovie":
-			site = "registMovie.jsp";
+			site = getNumber(request);
 			break;
+
 		// 영화 등록 기능 (제목, 내용 등 내가 작성한 것들이 request 객체에 저장)
 		case "/insertMovie":
 			site = insertMovie(request);
@@ -107,7 +108,6 @@ public class ReviewController extends HttpServlet {
 		case "/delete":
 			site = deleteReview(request);
 			break;
-
 		}
 
 		if (site.startsWith("redirect:/")) {
@@ -119,6 +119,21 @@ public class ReviewController extends HttpServlet {
 		}
 	}
 	
+
+	public String getNumber(HttpServletRequest request) {
+		Movie m;
+		
+		try {
+			m = dao.getNumber();
+			request.setAttribute("m", m);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("번호 생성 과정에서 문제 발생");
+			request.setAttribute("error", "번호 생성이 정상적으로 처리되지 않았습니다!");
+		}
+
+		return "registMovie.jsp";
+	}
 
 	public String insertMovie(HttpServletRequest request) {
 		Movie m = new Movie();
@@ -137,8 +152,8 @@ public class ReviewController extends HttpServlet {
 			}
 		}
 
-		// 영화 등록 후 영화 정보 페이지로 이동
-		return "redirect:/registerdMovie";
+		// 영화 등록 후 홈으로 이동
+		return "redirect:/home";
 	}
 
 	public String insertReview(HttpServletRequest request) {
