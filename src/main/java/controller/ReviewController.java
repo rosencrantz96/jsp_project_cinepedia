@@ -50,7 +50,7 @@ public class ReviewController extends HttpServlet {
 
 	protected void doPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String context = request.getContextPath();
+//		String context = request.getContextPath();
 		String command = request.getServletPath();
 		String site = null;
 
@@ -67,47 +67,46 @@ public class ReviewController extends HttpServlet {
 		case "/registMovie":
 			site = getNumber(request);
 			break;
-
 		// 영화 등록 기능 (제목, 내용 등 내가 작성한 것들이 request 객체에 저장)
 		case "/insertMovie":
 			site = insertMovie(request);
 			break;
-		// 영화 정보 페이지
-		case "/registerdMovie":
-			site = "registerdMovie.jsp";
-			break;
-		// 메뉴의 [review] 누르면 영화 등록 먼저 하라는 알림창 뜨게 수정하기
-		case "/registReview":
-			site = "alert.jsp";
-			break;
-		// [리뷰쓰기]를 누르면 registReivew.jsp를 보여줌.
-		case "/movieReview":
-			site = "registReview.jsp";
-			break;
-		// 리뷰 등록 기능 (제목, 내용 등 내가 작성한 것들이 request 객체에 저장)
-		case "/insertReview":
-			site = insertReview(request);
-			break;
-		// 영화 정보 수정 화면을 보여줌 (1. 수정할 데이터를 먼저 끌어오기)
-		case "/editMovieInfo":
-			site = getMovieForEdit(request);
-			break;
-		// update 기능
-		case "/updateMovieInfo":
-			site = updateMovieInfo(request);
-			break;
-		// 리뷰 정보 수정 화면을 보여줌 (1. 수정할 데이터를 먼저 끌어오기)
-		case "/editReviewInfo":
-			site = getReviewForEdit(request);
-			break;
-		// update 기능
-		case "/updateReviewInfo":
-			site = updateReviewInfo(request);
-			break;
-		// 리뷰 삭제 기능
-		case "/delete":
-			site = deleteReview(request);
-			break;
+//		// 영화 정보 페이지
+//		case "/registerdMovie":
+//			site = "registerdMovie.jsp";
+//			break;
+//		// 메뉴의 [review] 누르면 영화 등록 먼저 하라는 알림창 뜨게 수정하기
+//		case "/registReview":
+//			site = "alert.jsp";
+//			break;
+//		// [리뷰쓰기]를 누르면 registReivew.jsp를 보여줌.
+//		case "/movieReview":
+//			site = "registReview.jsp";
+//			break;
+//		// 리뷰 등록 기능 (제목, 내용 등 내가 작성한 것들이 request 객체에 저장)
+//		case "/insertReview":
+//			site = insertReview(request);
+//			break;
+//		// 영화 정보 수정 화면을 보여줌 (1. 수정할 데이터를 먼저 끌어오기)
+//		case "/editMovieInfo":
+//			site = getMovieForEdit(request);
+//			break;
+//		// update 기능
+//		case "/updateMovieInfo":
+//			site = updateMovieInfo(request);
+//			break;
+//		// 리뷰 정보 수정 화면을 보여줌 (1. 수정할 데이터를 먼저 끌어오기)
+//		case "/editReviewInfo":
+//			site = getReviewForEdit(request);
+//			break;
+//		// update 기능
+//		case "/updateReviewInfo":
+//			site = updateReviewInfo(request);
+//			break;
+//		// 리뷰 삭제 기능
+//		case "/delete":
+//			site = deleteReview(request);
+//			break;
 		}
 
 		if (site.startsWith("redirect:/")) {
@@ -167,14 +166,14 @@ public class ReviewController extends HttpServlet {
 			ctx.log("리뷰 등록 과정에서 문제 발생");
 			try {
 				String encodeName = URLEncoder.encode("리뷰가 정상적으로 등록되지 않았습니다!", "UTF-8");
-				return "redirect:/home?error=" + encodeName;
+				return "redirect:/list?error=" + encodeName;
 			} catch (UnsupportedEncodingException e1) {
 				e1.printStackTrace();
 			}
 		}
 
 		// 리뷰 등록 후 리뷰 정보 페이지로 이동
-		return "redirect:/registerdReview";
+		return "redirect:/list";
 	}
 
 	public String getMovieForEdit(HttpServletRequest request) {

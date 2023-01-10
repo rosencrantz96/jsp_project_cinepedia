@@ -1,5 +1,5 @@
 function chkForm() {
-	var f = ducument.frm;
+	var f = document.frm;
 	
 	if(f.m_title.value == '') {
 		alert("영화 제목을 입력해주세요.");
