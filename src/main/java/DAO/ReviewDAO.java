@@ -208,6 +208,26 @@ public class ReviewDAO {
 		return movieList;
 	}
 
+	public List<Movie> getRegisterdMovie() throws SQLException {
+		Connection conn = open();
+		ArrayList<Movie> movieList = new ArrayList<Movie>();
+		
+		String sql = "select * from movie where m_no = ? "; 
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+		
+		try (conn; pstmt; rs) {
+			while (rs.next()) {
+				Movie m = new Movie();
+				m.setM_no(rs.getInt(1));
+				
+				movieList.add(m);
+			}
+		}
+		
+		return null;
+	}
+
 
 	
 
