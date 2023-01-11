@@ -30,28 +30,54 @@ public class ReviewDAO {
 		return conn;
 	}
 
-	public Movie getNumber() throws SQLException  {
+	// 영화+리뷰 조회
+	public List<Movie> getList() throws Exception {
 		Connection conn = open();
-		Movie m = new Movie();
-		
-		String sql = "select max(m_no) + 1 from movie "; 
+		ArrayList<Movie> movieList = new ArrayList<Movie>();
+
+		String sql = "select m.m_no, m.m_title, r.r_title, r.r_grade from movie m, review r where m.m_no = r.m_no";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
-		
+
 		try (conn; pstmt; rs) {
-			if(rs.next()) {
+			while (rs.next()) {
+				Movie m = new Movie();
+				m.setM_no(rs.getInt(1));
+				m.setM_title(rs.getString(2));
+				m.setR_title(rs.getString(3));
+				m.setR_grade(rs.getDouble(4));
+
+				movieList.add(m);
+			}
+		}
+
+		return movieList;
+	}
+
+	// m_no 자동 생성
+	public Movie getNumber() throws SQLException {
+		Connection conn = open();
+		Movie m = new Movie();
+
+		String sql = "select max(m_no) + 1 from movie ";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+
+		try (conn; pstmt; rs) {
+			if (rs.next()) {
 				m.setM_no(rs.getInt(1));
 			}
 		}
-		
+
 		return m;
 	}
-	
+
+	// 영화 정보 등록
 	public void insertMovie(Movie m) throws Exception {
 		Connection conn = open();
 		String sql = "insert into movie values (?, ?, ?, ?, ?, ?, ?, to_date(?, 'YYYY-MM-DD')) ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
+
 		try (conn; pstmt) {
 			pstmt.setInt(1, m.getM_no());
 			pstmt.setString(2, m.getM_title());
@@ -61,28 +87,70 @@ public class ReviewDAO {
 			pstmt.setString(6, m.getM_grade());
 			pstmt.setString(7, m.getM_genre());
 			pstmt.setString(8, m.getM_date());
-			
-			pstmt.executeUpdate();
-//			int result = pstmt.executeUpdate();
 
-			
-//			if (pstmt.executeUpdate() != 1) {
-//				throw new Exception("DB에러");
-//			}
+			pstmt.executeUpdate();
+
 		}
 	}
 
+	// m_no 자동 생성 (리뷰 페이지)
+	public Review getReviewNumber() throws SQLException {
+		Connection conn = open();
+		Review r = new Review();
+
+		String sql = "select max(m_no) + 1 from review ";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+
+		try (conn; pstmt; rs) {
+			if (rs.next()) {
+				r.setM_no(rs.getInt(1));
+			}
+		}
+
+		return r;
+	}
+	
+	// 영화 리뷰 등록
 	public void insertReview(Review r) throws Exception {
 		Connection conn = open();
-		String sql = "insert into review (r_title, m_no, r_grade, r_content) values (?, review_seq.nextval, ?, ?)";
+		String sql = "insert into review values (?, ?, ?, ?) ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		try (conn; pstmt) {
-			pstmt.setString(1, r.getR_title());
-			pstmt.setDouble(2, r.getR_grade());
-			pstmt.setString(3, r.getR_content());
+			pstmt.setInt(1, r.getM_no());
+			pstmt.setString(2, r.getR_title());
+			pstmt.setDouble(3, r.getR_grade());
+			pstmt.setString(4, r.getR_content());
 			pstmt.executeUpdate();
 		}
+	}
+
+
+	// 영화 정보 내용 가져오기
+	public Movie getRegisterdMovie(int m_no) throws SQLException {
+		Connection conn = open();
+		Movie m = new Movie();
+
+		String sql = "select max(m_no) keep(dense_rank first order by m_no desc) from movie ";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+
+		try (conn; pstmt; rs) {
+			while (rs.next()) {
+				m.setM_no(rs.getInt(1));
+				m.setM_title(rs.getString(2));
+				m.setM_actor(rs.getString(3));
+				m.setM_director(rs.getString(4));
+				m.setM_nation(rs.getString(5));
+				m.setM_grade(rs.getString(6));
+				m.setM_genre(rs.getString(7));
+				m.setM_date(rs.getString(8));
+			}
+
+			return m;
+		}
+
 	}
 
 	// 영화 정보 내용 가져오기
@@ -110,6 +178,8 @@ public class ReviewDAO {
 
 	}
 
+	
+
 	public void updateMovieInfo(Movie m) throws Exception {
 		Connection conn = open();
 
@@ -135,11 +205,11 @@ public class ReviewDAO {
 	public Review getReviewView(int m_no) throws Exception {
 		Connection conn = open();
 		Review r = new Review();
-		
-		String sql ="select r_title, r_grade, r_content from review where m_no = ? ";
+
+		String sql = "select r_title, r_grade, r_content from review where m_no = ? ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
-		
+
 		try (conn; pstmt; rs) {
 			while (rs.next()) {
 				r.setR_title(rs.getString(1));
@@ -147,7 +217,7 @@ public class ReviewDAO {
 				r.setR_content(rs.getString(3));
 			}
 			return r;
-		
+
 		}
 	}
 
@@ -184,51 +254,5 @@ public class ReviewDAO {
 			}
 		}
 	}
-
-	public List<Movie> getList() throws Exception {
-		Connection conn = open();
-		ArrayList<Movie> movieList = new ArrayList<Movie>();
-		
-		String sql = "select m.m_no, m.m_title, r.r_title, r.r_grade from movie m, review r where m.m_no = r.m_no"; 
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		ResultSet rs = pstmt.executeQuery();
-		
-		try (conn; pstmt; rs) {
-			while (rs.next()) {
-				Movie m = new Movie();
-				m.setM_no(rs.getInt(1));
-				m.setM_title(rs.getString(2));
-				m.setR_title(rs.getString(3));
-				m.setR_grade(rs.getDouble(4));
-				
-				movieList.add(m);
-			}
-		}
-		
-		return movieList;
-	}
-
-	public List<Movie> getRegisterdMovie() throws SQLException {
-		Connection conn = open();
-		ArrayList<Movie> movieList = new ArrayList<Movie>();
-		
-		String sql = "select * from movie where m_no = ? "; 
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		ResultSet rs = pstmt.executeQuery();
-		
-		try (conn; pstmt; rs) {
-			while (rs.next()) {
-				Movie m = new Movie();
-				m.setM_no(rs.getInt(1));
-				
-				movieList.add(m);
-			}
-		}
-		
-		return null;
-	}
-
-
-	
 
 }

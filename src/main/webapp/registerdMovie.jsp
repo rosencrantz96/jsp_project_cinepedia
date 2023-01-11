@@ -16,7 +16,7 @@
 					<ul class="headerMenuGroup">
 						<li><a href="registMovie">MOVIE</a></li>
 						<li><a href="registReview">REVIEW</a></li>
-						<li><a href="List">LIST/EDIT</a></li>
+						<li><a href="list">LIST/EDIT</a></li>
 						<li><a href="home">HOME</a></li>
 					</ul>
 				</nav>
