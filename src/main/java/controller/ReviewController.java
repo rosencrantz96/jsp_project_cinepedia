@@ -128,12 +128,14 @@ public class ReviewController extends HttpServlet {
 //			break;
 		}
 
-		if (site.startsWith("redirect:/")) {
-			String rview = site.substring("redirect:/".length());
-			System.out.println(rview);
-			response.sendRedirect(rview);
-		} else {
-			ctx.getRequestDispatcher("/" + site).forward(request, response);
+		if (site != null ) {
+			if (site.startsWith("redirect:/")) {
+				String rview = site.substring("redirect:/".length());
+				System.out.println(rview);
+				response.sendRedirect(rview);
+			} else {
+				ctx.getRequestDispatcher("/" + site).forward(request, response);
+			}			
 		}
 	}
 
