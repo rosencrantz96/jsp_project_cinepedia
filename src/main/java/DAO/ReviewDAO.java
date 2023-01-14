@@ -120,7 +120,7 @@ public class ReviewDAO {
 		try (conn; pstmt) {
 			pstmt.setInt(1, r.getM_no());
 			pstmt.setString(2, r.getR_title());
-			pstmt.setDouble(3, r.getR_grade());
+			pstmt.setInt(3, r.getR_grade());
 			pstmt.setString(4, r.getR_content());
 			pstmt.executeUpdate();
 		}
@@ -213,7 +213,7 @@ public class ReviewDAO {
 		try (conn; pstmt; rs) {
 			while (rs.next()) {
 				r.setR_title(rs.getString(1));
-				r.setR_grade(rs.getDouble(2));
+				r.setR_grade(rs.getInt(2));
 				r.setR_content(rs.getString(3));
 			}
 			return r;
