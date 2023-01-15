@@ -75,7 +75,7 @@ public class ReviewController extends HttpServlet {
 		case "/registReview":
 			site = getReviewNumber(request);
 			break;
-			
+
 		// 리뷰 등록 기능
 		case "/insertReview":
 			site = insertReview(request);
@@ -85,25 +85,29 @@ public class ReviewController extends HttpServlet {
 		case "/list":
 			site = getList(request);
 			break;
-			
+
 		// 등록된 영화 정보 가져오기
 		case "/registerdMovie":
 			site = getMovieInfo(request);
 			break;
+			
+		// 등록된 리뷰 정보 가져오기 
+		case "/registerdReview":
+			site = getReviewInfo(request);
+			break;
 
 		}
 
-		if (site != null ) {
+		if (site != null) {
 			if (site.startsWith("redirect:/")) {
 				String rview = site.substring("redirect:/".length());
 				System.out.println(rview);
 				response.sendRedirect(rview);
 			} else {
 				ctx.getRequestDispatcher("/" + site).forward(request, response);
-			}			
+			}
 		}
 	}
-
 
 	// 번호 자동 생성 후 영화 등록 페이지 뷰
 	public String getNumber(HttpServletRequest request) {
@@ -160,11 +164,11 @@ public class ReviewController extends HttpServlet {
 
 	public String insertReview(HttpServletRequest request) {
 		Review r = new Review();
-		
+
 		try {
 			BeanUtils.populate(r, request.getParameterMap());
 			dao.insertReview(r);
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			ctx.log("리뷰 등록 과정에서 문제 발생");
 			try {
@@ -176,7 +180,7 @@ public class ReviewController extends HttpServlet {
 		}
 		return "redirect:/home";
 	}
-	
+
 	// 영화 + 리뷰 페이지 뷰
 	public String getList(HttpServletRequest request) {
 		List<Movie> list;
@@ -192,10 +196,11 @@ public class ReviewController extends HttpServlet {
 
 		return "movieList.jsp";
 	}
-	
+
+	// 영화 정보 페이지 불러오기
 	public String getMovieInfo(HttpServletRequest request) {
 		int m_no = Integer.parseInt(request.getParameter("m_no"));
-		
+
 		try {
 			Movie m = dao.getMovieView(m_no);
 			request.setAttribute("m", m);
@@ -205,6 +210,21 @@ public class ReviewController extends HttpServlet {
 			request.setAttribute("error", "영화 정보를 정상적으로 가져오지 못했습니다.");
 		}
 		return "registerdMovie.jsp";
+	}
+
+	// 영화 리뷰 페이지 불러오기
+	public String getReviewInfo(HttpServletRequest request) {
+		int m_no = Integer.parseInt(request.getParameter("m_no"));
+
+		try {
+			Review r = dao.getReviewView(m_no);
+			request.setAttribute("r", r);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("영화 리뷰를 가져오는 과정에서 문제 발생");
+			request.setAttribute("error", "영화 리뷰를 정상적으로 가져오지 못했습니다.");
+		}
+		return "registerdReview.jsp";
 	}
 
 

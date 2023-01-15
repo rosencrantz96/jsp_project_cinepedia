@@ -128,32 +128,6 @@ public class ReviewDAO {
 
 
 	// 영화 정보 내용 가져오기
-	public Movie getRegisterdMovie(int m_no) throws SQLException {
-		Connection conn = open();
-		Movie m = new Movie();
-
-		String sql = "select max(m_no) keep(dense_rank first order by m_no desc) from movie ";
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		ResultSet rs = pstmt.executeQuery();
-
-		try (conn; pstmt; rs) {
-			while (rs.next()) {
-				m.setM_no(rs.getInt(1));
-				m.setM_title(rs.getString(2));
-				m.setM_actor(rs.getString(3));
-				m.setM_director(rs.getString(4));
-				m.setM_nation(rs.getString(5));
-				m.setM_grade(rs.getString(6));
-				m.setM_genre(rs.getString(7));
-				m.setM_date(rs.getString(8));
-			}
-
-			return m;
-		}
-
-	}
-
-	// 영화 정보 내용 가져오기
 	public Movie getMovieView(int m_no) throws Exception {
 		Connection conn = open();
 		Movie m = new Movie();
@@ -178,13 +152,35 @@ public class ReviewDAO {
 		}
 
 	}
+	
+	// 리뷰 정보 내용 가져오기
+	public Review getReviewView(int m_no) throws Exception {
+		Connection conn = open();
+		Review r = new Review();
+
+		String sql = "select m_no, r_title, r_grade, r_content from review where m_no = ? ";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, m_no);
+		ResultSet rs = pstmt.executeQuery();
+
+		try (conn; pstmt; rs) {
+			while (rs.next()) {
+				r.setM_no(rs.getInt(1));
+				r.setR_title(rs.getString(2));
+				r.setR_grade(rs.getInt(3));
+				r.setR_content(rs.getString(4));
+			}
+			return r;
+
+		}
+	}
 
 	
 
 	public void updateMovieInfo(Movie m) throws Exception {
 		Connection conn = open();
 
-		String sql = "update movie set m_title = ?, m_actor = ? , m_director = ?, m_nation = ?, m_grade = ?, m_genre = ?, m_date = ? where m_no = ? ";
+		String sql = "update movie set m_title = ?, m_actor = ? , m_director = ?, m_nation = ?, m_grade = ?, m_genre = ?, m_date = to_date(?, 'YYYY.MM.DD') where m_no = ? ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		try (conn; pstmt) {
 			pstmt.setString(1, m.getM_title());
@@ -202,58 +198,8 @@ public class ReviewDAO {
 		}
 	}
 
-	// 리뷰 정보 내용 가져오기
-	public Review getReviewView(int m_no) throws Exception {
-		Connection conn = open();
-		Review r = new Review();
 
-		String sql = "select r_title, r_grade, r_content from review where m_no = ? ";
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		ResultSet rs = pstmt.executeQuery();
 
-		try (conn; pstmt; rs) {
-			while (rs.next()) {
-				r.setR_title(rs.getString(1));
-				r.setR_grade(rs.getInt(2));
-				r.setR_content(rs.getString(3));
-			}
-			return r;
-
-		}
-	}
-
-	public void updateReviewInfo(Review r) throws Exception {
-		Connection conn = open();
-
-		String sql = "update review set r_title = ?, r_grade = ? , r_content = ? where m_no = ? ";
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-
-		try (conn; pstmt) {
-			pstmt.setString(1, r.getR_title());
-			pstmt.setDouble(2, r.getR_grade());
-			pstmt.setString(3, r.getR_content());
-			pstmt.setInt(4, r.getM_no());
-
-			if (pstmt.executeUpdate() != 1) {
-				throw new Exception("수정 에러");
-			}
-		}
-
-	}
-
-	public void deleteReview(int m_no) throws Exception {
-		Connection conn = open();
-
-		String sql = "delete from review where m_no = ? ";
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-
-		try (conn; pstmt) {
-			pstmt.setInt(1, m_no);
-
-			if (pstmt.executeUpdate() != 1) {
-				throw new Exception("삭제된 글이 없습니다.");
-			}
-		}
-	}
+	
 
 }

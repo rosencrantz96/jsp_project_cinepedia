@@ -63,7 +63,7 @@
 					<a href="editMovieInfo?m_no=${m.m_no}">정보수정</a>
 				</div>
 				<div class="btn">
-					<a href="movieReview">리뷰쓰기</a>
+					<a onclick="chkDelete(${m.m_no}); return false;">삭제하기</a>
 				</div>
 			</div>
 		</div>

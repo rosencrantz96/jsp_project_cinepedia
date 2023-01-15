@@ -25,49 +25,60 @@
 					<form name="frm" method="post"
 						action="updateMovieInfo?m_no=${m.m_no}">
 						<div class="registM">
-							<table>
-								<tr>
-									<th>영화 제목 :</th>
-									<td><input type="text" value="${m.m_no}" name="m_title"
-										class="underline" /></td>
-								</tr>
-								<tr>
-									<th>주 연 :</th>
-									<td><input type="text" value="${m.m_actor}" name="m_actor"
-										class="underline" /></td>
-								</tr>
-								<tr>
-									<th>감 독 :</th>
-									<td><input type="text" value="${m.m_director}"
-										name="m_director" class="underline" /></td>
-								</tr>
-								<tr>
-									<th>국 가 :</th>
-									<td><input type="text" value="${m.m_nation}"
-										name="m_nation" class="underline" /></td>
-								</tr>
-								<tr>
-									<th>영화 등급 :</th>
-									<td><input type="text" value="${m.m_grade}" name="m_grade"
-										class="underline" /></td>
-								</tr>
-								<tr>
-									<th>장 르 :</th>
-									<td><input type="text" value="${m.m_genre}" name="m_genre"
-										class="underline" /></td>
-								</tr>
-								<tr>
-									<th>개봉 일자 :</th>
-									<td><input type="date" value="${m.m_date}" name="m_date"
-										class="underline" /></td>
-								</tr>
-							</table>
+							<dl>
+								<dt>번호:</dt>
+								<dd>
+									<input type="text" value="${m.m_no}" name="m_no" readonly>
+								</dd>
+							</dl>
+							<dl>
+								<dt>영화 제목:</dt>
+								<dd>
+									<input type="text" value="${m.m_title}" name="m_title">
+								</dd>
+							</dl>
+							<dl>
+								<dt>배우:</dt>
+								<dd>
+									<input type="text" value="${m.m_actor}" name="m_actor">
+								</dd>
+							</dl>
+							<dl>
+								<dt>감독:</dt>
+								<dd>
+									<input type="text" value="${m.m_director}" name="m_director">}
+								</dd>
+							</dl>
+							<dl>
+								<dt>국가:</dt>
+								<dd>
+									<input type="text" value="${m.m_nation}" name="m_nation">
+								</dd>
+							</dl>
+							<dl>
+								<dt>등급:</dt>
+								<dd>
+									<input type="text" value="${m.m_grade}" name="m_grade">
+								</dd>
+							</dl>
+							<dl>
+								<dt>장르:</dt>
+								<dd>
+									<input type="text" value="${m.m_genre}" name="m_genre">
+								</dd>
+							</dl>
+							<dl>
+								<dt>개봉 일자:</dt>
+								<dd>
+									<input type="text" value="${m.m_date}" name="m_date">
+								</dd>
+							</dl>
+						</div>
+						<div class="btn">
+							<a onclick="chkForm(); return false" class="on">수정하기</a>
 						</div>
 					</form>
 				</section>
-				<div class="btn">
-					<a href="registerdMovie">등록하기</a>
-				</div>
 			</div>
 		</div>
 	</div>
