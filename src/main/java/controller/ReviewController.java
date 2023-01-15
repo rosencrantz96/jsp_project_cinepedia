@@ -224,7 +224,7 @@ public class ReviewController extends HttpServlet {
 			ctx.log("영화 리뷰를 가져오는 과정에서 문제 발생");
 			request.setAttribute("error", "영화 리뷰를 정상적으로 가져오지 못했습니다.");
 		}
-		return "registerdReview.jsp";
+		return "registeredReview.jsp";
 	}
 
 
