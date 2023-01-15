@@ -192,7 +192,7 @@ public class ReviewController extends HttpServlet {
 		return "registReview.jsp";
 	}
 
-	// 리뷰 등록! → 리스트 확인
+	// 리뷰 등록! → 홈 화면으로
 	public String insertReview(HttpServletRequest request) {
 		Review r = new Review();
 
