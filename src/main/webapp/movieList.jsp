@@ -52,5 +52,15 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		// jstl은 디코딩을 하지 않아도 됨 
+		<c:if test="${param.error != null}">
+			alert("${param.error}")
+		</c:if>
+		// getAttribute()로 할 때는 여기서 에러 메시지 호출 ? (get방식으로 할 때는 여기서 에러메시지 ?)
+		<c:if test="${error != null}">
+			alert("${error}")
+		</c:if>
+	</script>
 </body>
 </html>

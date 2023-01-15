@@ -114,7 +114,7 @@ public class ReviewDAO {
 	// 영화 리뷰 등록
 	public void insertReview(Review r) throws Exception {
 		Connection conn = open();
-		String sql = "insert into review(m_no, r_title, r_grade, r_content) values (?, ?, ?, ?) ";
+		String sql = "insert into review values (?, ?, ?, ?) ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		try (conn; pstmt) {
@@ -160,6 +160,7 @@ public class ReviewDAO {
 
 		String sql = "select m_no, m_title, m_actor, m_director, m_nation, m_grade, m_genre, to_char(m_date, 'YYYY-MM-DD') from movie where m_no = ? ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, m_no);
 		ResultSet rs = pstmt.executeQuery();
 
 		try (conn; pstmt; rs) {
