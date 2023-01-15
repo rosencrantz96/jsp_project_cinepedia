@@ -31,7 +31,7 @@
 			</section>
 			<div class="rbtn">
 				<div class="Rbtn">
-					<a onclick="chkDelete(${r.m_no}); return false;">삭제</a>
+					<a onclick="chkReviewDelete(${r.m_no}); return false;">삭제</a>
 				</div>
 				<div class="Rbtn">
 					<a href="editReviewInfo?m_no=${r.m_no}">수정</a>

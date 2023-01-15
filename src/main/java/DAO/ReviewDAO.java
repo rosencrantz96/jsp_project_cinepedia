@@ -110,7 +110,7 @@ public class ReviewDAO {
 
 		return r;
 	}
-	
+
 	// 영화 리뷰 등록
 	public void insertReview(Review r) throws Exception {
 		Connection conn = open();
@@ -125,7 +125,6 @@ public class ReviewDAO {
 			pstmt.executeUpdate();
 		}
 	}
-
 
 	// 영화 정보 내용 가져오기
 	public Movie getMovieView(int m_no) throws Exception {
@@ -152,7 +151,7 @@ public class ReviewDAO {
 		}
 
 	}
-	
+
 	// 리뷰 정보 내용 가져오기
 	public Review getReviewView(int m_no) throws Exception {
 		Connection conn = open();
@@ -175,7 +174,7 @@ public class ReviewDAO {
 		}
 	}
 
-	// 영화 정보 업데이트 
+	// 영화 정보 업데이트
 	public void updateMovieInfo(Movie m) throws Exception {
 		Connection conn = open();
 
@@ -212,11 +211,39 @@ public class ReviewDAO {
 				throw new Exception("수정 에러");
 			}
 		}
-		
+
 	}
 
+	// 영화 정보 삭제
+	public void deleteMovie(int m_no) throws Exception {
+		Connection conn = open();
 
+		String sql = "delete from movie where m_no = ? ";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
 
-	
+		try (conn; pstmt) {
+			pstmt.setInt(1, m_no);
+
+			if (pstmt.executeUpdate() != 1) {
+				throw new Exception("삭제된 글이 없습니다.");
+			}
+		}
+	}
+
+	public void deleteReview(int m_no) throws Exception {
+		Connection conn = open();
+
+		String sql = "delete from review where m_no = ? ";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+
+		try (conn; pstmt) {
+			pstmt.setInt(1, m_no);
+
+			if (pstmt.executeUpdate() != 1) {
+				throw new Exception("삭제된 글이 없습니다.");
+			}
+		}
+
+	}
 
 }

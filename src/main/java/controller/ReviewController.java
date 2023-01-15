@@ -113,7 +113,16 @@ public class ReviewController extends HttpServlet {
 		case "/updateReviewInfo":
 			site = updateReviewInfo(request);
 			break;
+			
+		// 영화 정보 삭제하기 
+		case "/deleteMovie":
+			site = deleteMovie(request);
+			break;
 
+		// 리뷰 정보 삭제하기 
+		case "/deleteReview":
+			site = deleteReview(request);
+			break;
 		}
 
 		if (site != null) {
@@ -126,6 +135,7 @@ public class ReviewController extends HttpServlet {
 			}
 		}
 	}
+
 
 	// 번호 자동 생성 후 영화 등록 페이지 뷰
 	public String getNumber(HttpServletRequest request) {
@@ -282,6 +292,7 @@ public class ReviewController extends HttpServlet {
 		return "redirect:/registerdMovie?m_no=" + m.getM_no();
 	}
 	
+	// 리뷰 정보 수정 페이지 불러오기 
 	public String getReviewInfoViewForEdit(HttpServletRequest request) {
 		int m_no = Integer.parseInt(request.getParameter("m_no"));
 
@@ -297,6 +308,7 @@ public class ReviewController extends HttpServlet {
 		return "editReviewInfo.jsp";
 	}
 
+	// 리뷰 정보 수정하기
 	public String updateReviewInfo(HttpServletRequest request) {
 		Review r = new Review();
 
@@ -316,5 +328,48 @@ public class ReviewController extends HttpServlet {
 		}
 		return "redirect:/registeredReview?m_no=" + r.getM_no();
 	}
+	
+	// 영화 정보 삭제하기 
+	public String deleteMovie(HttpServletRequest request) {
+		int m_no = Integer.parseInt(request.getParameter("m_no"));
+		
+		try {
+			dao.deleteMovie(m_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("영화를 삭제하는 과정에서 문제 발생");
+			
+			try {
+				String encodeName = URLEncoder.encode("영화가 정상적으로 삭제되지 않았습니다!", "UTF-8");
+				return "redirect:/list?error=" + encodeName;
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+		}
+		
+		return "redirect:/list";
+	}
+	
+
+	public String deleteReview(HttpServletRequest request) {
+int m_no = Integer.parseInt(request.getParameter("m_no"));
+		
+		try {
+			dao.deleteReview(m_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("리뷰를 삭제하는 과정에서 문제 발생");
+			
+			try {
+				String encodeName = URLEncoder.encode("리뷰가 정상적으로 삭제되지 않았습니다!", "UTF-8");
+				return "redirect:/list?error=" + encodeName;
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+		}
+		
+		return "redirect:/list";
+	}
+
 
 }

@@ -37,7 +37,18 @@ function chkDelete (m_no) {
 	
 	if (result) {
 		const url = location.origin;
-		location.href = url + "/cinepedia_jsp/delete?m_no=" + m_no;
+		location.href = url + "/cinepedia_jsp/deleteMovie?m_no=" + m_no;
+	} else {
+		return false;
+	}
+}
+
+function chkReiveiwDelete (m_no) {
+	const result = confirm ("삭제하시겠습니까?");
+	
+	if (result) {
+		const url = location.origin;
+		location.href = url + "/cinepedia_jsp/deleteReview?m_no=" + m_no;
 	} else {
 		return false;
 	}
