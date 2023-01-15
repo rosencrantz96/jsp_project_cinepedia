@@ -175,8 +175,7 @@ public class ReviewDAO {
 		}
 	}
 
-	
-
+	// 영화 정보 업데이트 
 	public void updateMovieInfo(Movie m) throws Exception {
 		Connection conn = open();
 
@@ -196,6 +195,24 @@ public class ReviewDAO {
 				throw new Exception("수정 에러");
 			}
 		}
+	}
+
+	public void updateReviewInfo(Review r) throws Exception {
+		Connection conn = open();
+
+		String sql = "update review set r_title = ?, r_grade = ?, r_content = ? where m_no = ? ";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		try (conn; pstmt) {
+			pstmt.setString(1, r.getR_title());
+			pstmt.setInt(2, r.getR_grade());
+			pstmt.setString(3, r.getR_content());
+			pstmt.setInt(4, r.getM_no());
+
+			if (pstmt.executeUpdate() != 1) {
+				throw new Exception("수정 에러");
+			}
+		}
+		
 	}
 
 

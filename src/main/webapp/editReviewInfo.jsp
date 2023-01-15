@@ -11,12 +11,15 @@
 	<div class="reWrap">
 		<div class="reSubWrap">
 			<section>
-				<form name="frm" method="post" action="updateReviewInfo?m_no=${r.m_no}">
+				<form name="frm" method="post"
+					action="updateReviewInfo?m_no=${r.m_no}">
 					<div class="reviewHeader">
 						<dl>
 							<dt>|영화 제목|</dt>
-							<dd><input type="text" value="${r.m_no}" name="r.title" readonly
-                                class="underlineRT"></dd>
+							<dd>
+								<input type="text" value="${r.m_no}" name="r.title" readonly
+									class="underlineRT">
+							</dd>
 						</dl>
 						<dl>
 							<dt>|리뷰 제목 입력|</dt>
@@ -36,16 +39,16 @@
 					<div class="reviewInfo">
 						<textarea name="r_content" placeholder="내용 입력" class="cont">${r.r_content}</textarea>
 					</div>
+					<div class="rbtn">
+						<div class="Rbtn">
+							<a onclick="chkReviewForm(); return false;" class="on">등록</a>
+						</div>
+						<div class="Rbtn">
+							<a href="home">취소</a>
+						</div>
+					</div>
 				</form>
 			</section>
-			<div class="rbtn">
-				<div class="Rbtn">
-					<a href="registerdReview">등록</a>
-				</div>
-				<div class="Rbtn">
-					<a href="home">취소</a>
-				</div>
-			</div>
 		</div>
 	</div>
 </body>

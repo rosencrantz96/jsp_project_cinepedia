@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
@@ -21,7 +20,6 @@ import org.apache.commons.beanutils.BeanUtils;
 import DAO.ReviewDAO;
 import DTO.Movie;
 import DTO.Review;
-import oracle.net.ns.Message11;
 
 @WebServlet("/")
 public class ReviewController extends HttpServlet {
@@ -90,10 +88,30 @@ public class ReviewController extends HttpServlet {
 		case "/registerdMovie":
 			site = getMovieInfo(request);
 			break;
-			
-		// 등록된 리뷰 정보 가져오기 
+
+		// 등록된 리뷰 정보 가져오기
 		case "/registerdReview":
 			site = getReviewInfo(request);
+			break;
+
+		// 영화 정보 수정 화면 보여주기
+		case "/editMovieInfo":
+			site = getMovieInfoViewForEdit(request);
+			break;
+
+		// 영화 정보 수정하기
+		case "/updateMovieInfo":
+			site = updateMovieInfo(request);
+			break;
+
+		// 영화 리뷰 수정 화면 보여주기
+		case "/editReviewInfo":
+			site = getReviewInfoViewForEdit(request);
+			break;
+
+		// 영화 리뷰 수정하기
+		case "/updateReviewInfo":
+			site = updateReviewInfo(request);
 			break;
 
 		}
@@ -215,7 +233,7 @@ public class ReviewController extends HttpServlet {
 	// 영화 리뷰 페이지 불러오기
 	public String getReviewInfo(HttpServletRequest request) {
 		int m_no = Integer.parseInt(request.getParameter("m_no"));
-
+		
 		try {
 			Review r = dao.getReviewView(m_no);
 			request.setAttribute("r", r);
@@ -227,5 +245,76 @@ public class ReviewController extends HttpServlet {
 		return "registeredReview.jsp";
 	}
 
+	// 영화 정보 수정 페이지 불러오기
+	public String getMovieInfoViewForEdit(HttpServletRequest request) {
+		int m_no = Integer.parseInt(request.getParameter("m_no"));
+
+		try {
+			Movie m = dao.getMovieView(m_no);
+			request.setAttribute("m", m);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("영화 정보를 가져오는 과정에서 문제 발생");
+			request.setAttribute("error", "영화 정보를 정상적으로 가져오지 못했습니다!");
+		}
+
+		return "editMovieInfo.jsp";
+	}
+
+	// 영화 정보 수정하기
+	public String updateMovieInfo(HttpServletRequest request) {
+		Movie m = new Movie();
+
+		try {
+			BeanUtils.populate(m, request.getParameterMap());
+			dao.updateMovieInfo(m);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("수정 과정에서 문제 발생");
+			try {
+				// get방식으로 넘겨줄 때 한글 깨짐을 방지한다.
+				String encodeName = URLEncoder.encode("게시물이 정상적으로 수정되지 않았습니다!", "UTF-8");
+				return "redirect:/registerdMovie?m_no=" + m.getM_no() + "&error=" + encodeName;
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+		}
+		return "redirect:/registerdMovie?m_no=" + m.getM_no();
+	}
+	
+	public String getReviewInfoViewForEdit(HttpServletRequest request) {
+		int m_no = Integer.parseInt(request.getParameter("m_no"));
+
+		try {
+			Review r = dao.getReviewView(m_no);
+			request.setAttribute("r", r);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("영화 리뷰를 가져오는 과정에서 문제 발생");
+			request.setAttribute("error", "영화 리뷰를 정상적으로 가져오지 못했습니다!");
+		}
+
+		return "editReviewInfo.jsp";
+	}
+
+	public String updateReviewInfo(HttpServletRequest request) {
+		Review r = new Review();
+
+		try {
+			BeanUtils.populate(r, request.getParameterMap());
+			dao.updateReviewInfo(r);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("수정 과정에서 문제 발생");
+			try {
+				// get방식으로 넘겨줄 때 한글 깨짐을 방지한다.
+				String encodeName = URLEncoder.encode("게시물이 정상적으로 수정되지 않았습니다!", "UTF-8");
+				return "redirect:/registeredReview?m_no=" + r.getM_no() + "&error=" + encodeName;
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+		}
+		return "redirect:/registeredReview?m_no=" + r.getM_no();
+	}
 
 }
