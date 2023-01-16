@@ -123,6 +123,7 @@ public class ReviewDAO {
 			pstmt.setString(2, r.getR_title());
 			pstmt.setInt(3, r.getR_grade());
 			pstmt.setString(4, r.getR_content());
+
 			pstmt.executeUpdate();
 		}
 	}

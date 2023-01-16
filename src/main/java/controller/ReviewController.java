@@ -75,7 +75,7 @@ public class ReviewController extends HttpServlet {
 			break;
 
 		// 리뷰 등록 기능
-		case "/insertReview":
+		case "/insertReivew":
 			site = insertReview(request);
 			break;
 
@@ -205,7 +205,7 @@ public class ReviewController extends HttpServlet {
 				e1.printStackTrace();
 			}
 		}
-		return "redirect:/home";
+		return "redirect:/list";
 	}
 
 	// 영화 + 리뷰 페이지 뷰
@@ -328,6 +328,7 @@ public class ReviewController extends HttpServlet {
 		return "redirect:/registeredReview?m_no=" + r.getM_no();
 	}
 
+	// 영화 삭제하기
 	public String deleteMovie(HttpServletRequest request) {
 		int m_no = Integer.parseInt(request.getParameter("m_no"));
 
@@ -346,6 +347,7 @@ public class ReviewController extends HttpServlet {
 		return "redirect:/list";
 	}
 
+	// 리뷰 삭제하기 
 	public String deleteReview(HttpServletRequest request) {
 		int m_no = Integer.parseInt(request.getParameter("m_no"));
 

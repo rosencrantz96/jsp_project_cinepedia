@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,5 +52,14 @@
 			</section>
 		</div>
 	</div>
+	<script>
+		<c:if test="${param.error != null}">
+			alert("${param.error}")
+		</c:if>
+		<c:if test="${error != null}">
+			alert("${error}")
+		</c:if>
+	</script>
+	<script type="text/javascript" src="./script.js"></script>
 </body>
 </html>
