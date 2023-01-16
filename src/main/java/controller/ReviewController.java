@@ -54,7 +54,7 @@ public class ReviewController extends HttpServlet {
 		String site = null;
 
 		switch (command) {
-		// 메노의 [home]을 누르면 index.jsp를 보여줌
+		// 메뉴의 [home]을 누르면 index.jsp를 보여줌
 		case "/home":
 			site = "index.jsp";
 			break;
@@ -114,12 +114,12 @@ public class ReviewController extends HttpServlet {
 			site = updateReviewInfo(request);
 			break;
 
-		// 영화 정보 삭제하기
-		case "/deleteMovie":
+		// 영화 삭제하기
+		case "/delete":
 			site = deleteMovie(request);
 			break;
 
-		// 리뷰 정보 삭제하기
+		// 리뷰 삭제하기
 		case "/deleteReview":
 			site = deleteReview(request);
 			break;
@@ -328,7 +328,6 @@ public class ReviewController extends HttpServlet {
 		return "redirect:/registeredReview?m_no=" + r.getM_no();
 	}
 
-	// 영화 정보 삭제하기
 	public String deleteMovie(HttpServletRequest request) {
 		int m_no = Integer.parseInt(request.getParameter("m_no"));
 
@@ -336,16 +335,14 @@ public class ReviewController extends HttpServlet {
 			dao.deleteMovie(m_no);
 		} catch (Exception e) {
 			e.printStackTrace();
-			ctx.log("영화를 삭제하는 과정에서 문제 발생");
-
+			ctx.log("게시판 리스트를 삭제하는 과정에서 문제 발생");
 			try {
-				String encodeName = URLEncoder.encode("영화가 정상적으로 삭제되지 않았습니다!", "UTF-8");
+				String encodeName = URLEncoder.encode("리스트가 정상적으로 삭제되지 않았습니다!", "UTF-8");
 				return "redirect:/list?error=" + encodeName;
 			} catch (UnsupportedEncodingException e1) {
 				e1.printStackTrace();
 			}
 		}
-
 		return "redirect:/list";
 	}
 
@@ -356,16 +353,14 @@ public class ReviewController extends HttpServlet {
 			dao.deleteReview(m_no);
 		} catch (Exception e) {
 			e.printStackTrace();
-			ctx.log("리뷰를 삭제하는 과정에서 문제 발생");
-
+			ctx.log("영화를 삭제하는 과정에서 문제 발생");
 			try {
-				String encodeName = URLEncoder.encode("리뷰가 정상적으로 삭제되지 않았습니다!", "UTF-8");
+				String encodeName = URLEncoder.encode("리스트가 정상적으로 삭제되지 않았습니다!", "UTF-8");
 				return "redirect:/list?error=" + encodeName;
 			} catch (UnsupportedEncodingException e1) {
 				e1.printStackTrace();
 			}
 		}
-
 		return "redirect:/list";
 	}
 

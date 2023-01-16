@@ -46,6 +46,7 @@ public class ReviewDAO {
 				m.setM_title(rs.getString(2));
 				m.setR_title(rs.getString(3));
 				m.setR_grade(rs.getDouble(4));
+//				m.setM_no(rs.getInt(5));
 
 				movieList.add(m);
 			}
@@ -214,7 +215,7 @@ public class ReviewDAO {
 
 	}
 
-	// 영화 정보 삭제
+	// 영화 삭제
 	public void deleteMovie(int m_no) throws Exception {
 		Connection conn = open();
 
@@ -225,11 +226,12 @@ public class ReviewDAO {
 			pstmt.setInt(1, m_no);
 
 			if (pstmt.executeUpdate() != 1) {
-				throw new Exception("삭제된 글이 없습니다.");
+				throw new Exception("삭제된 리스트가 없습니다.");
 			}
 		}
 	}
 
+	// 리뷰 삭제
 	public void deleteReview(int m_no) throws Exception {
 		Connection conn = open();
 
@@ -240,7 +242,7 @@ public class ReviewDAO {
 			pstmt.setInt(1, m_no);
 
 			if (pstmt.executeUpdate() != 1) {
-				throw new Exception("삭제된 글이 없습니다.");
+				throw new Exception("삭제된 리스트가 없습니다.");
 			}
 		}
 

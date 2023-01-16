@@ -13,25 +13,25 @@
 	<div class="reWrap">
 		<div class="reSubWrap">
 			<section>
-					<div class="reviewHeader">
-						<dl>
-							<dt>|번호|</dt>
-							<dd>${r.m_no}</dd>
-						</dl>
-						<dl>
-							<dt>|리뷰 제목|</dt>
-							<dd>${r.r_title}</dd>
-						</dl>
-						<dl>
-							<dt>|내 평점|</dt>
-							<dd>${r.r_grade}</dd>
-						</dl>
-					</div>
-					<div class="reviewInfo">${r.r_content}</div>
+				<div class="reviewHeader">
+					<dl>
+						<dt>|번호|</dt>
+						<dd>${r.m_no}</dd>
+					</dl>
+					<dl>
+						<dt>|리뷰 제목|</dt>
+						<dd>${r.r_title}</dd>
+					</dl>
+					<dl>
+						<dt>|내 평점|</dt>
+						<dd>${r.r_grade}</dd>
+					</dl>
+				</div>
+				<div class="reviewInfo">${r.r_content}</div>
 			</section>
 			<div class="rbtn">
 				<div class="Rbtn">
-					<a onclick="chkReviewDelete(${r.m_no}); return false;">삭제</a>
+					<a href="deleteReview?m_no=${r.m_no}">삭제</a>
 				</div>
 				<div class="Rbtn">
 					<a href="editReviewInfo?m_no=${r.m_no}">수정</a>
