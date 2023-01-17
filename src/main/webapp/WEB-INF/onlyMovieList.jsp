@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<div class="wrap">
+<div class="wrap">
 		<div class="subWrap">
 			<div class="headerMenuWrap">
 				<nav class="headerMenu">
@@ -28,8 +27,8 @@
 							<tr>
 								<th>번호</th>
 								<th>영화 제목</th>
-								<th>리뷰 제목</th>
-								<th>내 평점</th>
+								<th>영화 감독</th>
+								<th>영화 장르</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -37,8 +36,8 @@
 								<tr>
 									<td class="title">${m.m_no}</td>
 									<td><a href="./registerdMovie?m_no=${m.m_no}">${m.m_title}</td>
-									<td><a href="./registerdReview?m_no=${m.m_no}">${m.r_title}</td>
-									<td>${m.r_grade}</td>
+									<td>${m.m_director}</td>
+									<td>${m.m_genre}</td>
 									<%-- <th><a herf="./delete?m_no=${m.m_no}">${m.m_no}번 삭제하기</th> --%>
 								</tr>
 							</c:forEach>

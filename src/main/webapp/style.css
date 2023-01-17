@@ -76,7 +76,7 @@
   margin: 0 auto;
 }
 
-.main section {
+.main div {
   width: 1140px;
   height: 350px;
   margin: 0 auto;
@@ -225,7 +225,7 @@ dt, dd {
 	display: block;
 }
 
-.reSubWrap section {
+.reSubWrap div {
   width: 1200px;
   height: 500px;
   margin: 0 auto;

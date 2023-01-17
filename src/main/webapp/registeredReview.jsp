@@ -12,7 +12,7 @@
 <body>
 	<div class="reWrap">
 		<div class="reSubWrap">
-			<section>
+			<div>
 				<div class="reviewHeader">
 					<dl>
 						<dt>|번호|</dt>
@@ -28,7 +28,7 @@
 					</dl>
 				</div>
 				<div class="reviewInfo">${r.r_content}</div>
-			</section>
+			</div>
 			<div class="rbtn">
 				<div class="Rbtn">
 					<a href="deleteReview?m_no=${r.m_no}">삭제</a>

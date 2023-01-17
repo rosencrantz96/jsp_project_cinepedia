@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import DTO.Movie;
 import DTO.Review;
@@ -45,7 +43,32 @@ public class ReviewDAO {
 				m.setM_no(rs.getInt(1));
 				m.setM_title(rs.getString(2));
 				m.setR_title(rs.getString(3));
-				m.setR_grade(rs.getDouble(4));
+				m.setR_grade(rs.getInt(4));
+//				m.setM_no(rs.getInt(5));
+
+				movieList.add(m);
+			}
+		}
+
+		return movieList;
+	}
+	 
+	// 영화 조회 
+	public List<Movie> getMovieOnly() throws Exception {
+		Connection conn = open();
+		ArrayList<Movie> movieList = new ArrayList<Movie>();
+
+		String sql = "select m_no, m_title, m_director, m_genre from movie";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+
+		try (conn; pstmt; rs) {
+			while (rs.next()) {
+				Movie m = new Movie();
+				m.setM_no(rs.getInt(1));
+				m.setM_title(rs.getString(2));
+				m.setM_director(rs.getString(3));
+				m.setM_genre(rs.getString(4));
 //				m.setM_no(rs.getInt(5));
 
 				movieList.add(m);
@@ -248,5 +271,7 @@ public class ReviewDAO {
 		}
 
 	}
+
+	
 
 }

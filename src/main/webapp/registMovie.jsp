@@ -22,7 +22,7 @@
 				</nav>
 			</div>
 			<div class="main">
-				<section>
+				<div>
 					<form name="frm" method="post" action="insertMovie">
 						<div class="registM">
 							<table class="registMovieTable">
@@ -65,8 +65,11 @@
 							<a onclick="chkForm(); return false;" style="cursor: pointer"
 								class="on">등록하기</a>
 						</div>
+						<div class="btn">
+							<a href="onlyMovie">등록된 영화 목록</a>
+						</div>
 					</form>
-				</section>
+				</div>
 			</div>
 		</div>
 	</div>

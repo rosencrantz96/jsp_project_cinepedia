@@ -23,7 +23,7 @@
 				</nav>
 			</div>
 			<div class="main">
-				<section>
+				<div>
 					<form name="frm" method="post"
 						action="updateMovieInfo?m_no=${m.m_no}">
 						<div class="registM">
@@ -80,7 +80,7 @@
 							<a onclick="chkForm(); return false" class="on">수정하기</a>
 						</div>
 					</form>
-				</section>
+				</div>
 			</div>
 		</div>
 	</div>

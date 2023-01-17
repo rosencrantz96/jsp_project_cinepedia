@@ -83,6 +83,11 @@ public class ReviewController extends HttpServlet {
 		case "/list":
 			site = getList(request);
 			break;
+		
+		// 영화 목록만 보여주는 onlyMovieList.jsp 보여주기
+		case "/onlyMovie":
+			site = getMovieOnly(request);
+			break;
 
 		// 등록된 영화 정보 가져오기
 		case "/registerdMovie":
@@ -135,6 +140,7 @@ public class ReviewController extends HttpServlet {
 			}
 		}
 	}
+
 
 	// 번호 자동 생성 후 영화 등록 페이지 뷰
 	public String getNumber(HttpServletRequest request) {
@@ -222,6 +228,22 @@ public class ReviewController extends HttpServlet {
 		}
 
 		return "movieList.jsp";
+	}
+	
+	// 영화 리스트 뷰 
+	private String getMovieOnly(HttpServletRequest request) {
+		List<Movie> list;
+		
+		try {
+			list= dao.getMovieOnly();
+			request.setAttribute("movieList", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ctx.log("영화 목록 생성 과정에서 문제 발생");
+			request.setAttribute("error", "영화 목록이 정상적으로 처리되지 않았습니다!");
+		}
+		
+		return "onlyMovieList.jsp";
 	}
 
 	// 영화 정보 페이지 불러오기

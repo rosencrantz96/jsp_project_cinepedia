@@ -23,7 +23,7 @@
 				</nav>
 			</div>
 			<div class="main">
-				<section>
+				<div>
 					<div class="movieInfo">
 						<dl>
 							<dt>번호:</dt>
@@ -58,7 +58,7 @@
 							<dd>${m.m_date}</dd>
 						</dl>
 					</div>
-				</section>
+				</div>
 				<div class="btn">
 					<a href="delete?m_no=${m.m_no}">삭제</a>
 				</div>

@@ -11,7 +11,7 @@
 <body>
 	<div class="reWrap">
 		<div class="reSubWrap">
-			<section>
+			<div>
 				<form name="frm" method="post"
 					action="updateReviewInfo?m_no=${r.m_no}">
 					<div class="reviewHeader">
@@ -49,7 +49,7 @@
 						</div>
 					</div>
 				</form>
-			</section>
+			</div>
 		</div>
 	</div>
 	<script>
