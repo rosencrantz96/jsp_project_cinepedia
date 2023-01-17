@@ -13,13 +13,15 @@
   background-color: #1c1c1c;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 @font-face {
-  font-family: 'Fredericka the Great';
+  font-family: 'Fredericka the Great', cursive;
   src: url('./font/FrederickatheGreat-Regular.ttf');
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 @font-face {
-  font-family: 'GowunDodum';
+  font-family: 'Gowun Dodum', sans-serif;
   src: url('./font/GowunDodum-Regular.ttf');
 }
 

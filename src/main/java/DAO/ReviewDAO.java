@@ -33,7 +33,7 @@ public class ReviewDAO {
 		Connection conn = open();
 		ArrayList<Movie> movieList = new ArrayList<Movie>();
 
-		String sql = "select m.m_no, m.m_title, r.r_title, r.r_grade from movie m, review r where m.m_no = r.m_no";
+		String sql = "select m.m_no, m.m_title, r.r_title, r.r_grade from movie m, review r where m.m_no = r.m_no order by m.m_no";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
 
@@ -65,7 +65,7 @@ public class ReviewDAO {
 		try (conn; pstmt; rs) {
 			while (rs.next()) {
 				Movie m = new Movie();
-				m.setM_no(rs.getInt(1));
+				m.setM_no(rs.getInt(1)); 
 				m.setM_title(rs.getString(2));
 				m.setM_director(rs.getString(3));
 				m.setM_genre(rs.getString(4));

@@ -3,6 +3,7 @@ package DTO;
 import java.sql.Date;
 
 public class Movie {
+	private int rownum;
 	private int m_no; // 등록 번호 
 	private String m_title; // 영화 제목 
 	private String m_actor; // 출연 배우 
@@ -15,6 +16,12 @@ public class Movie {
 	private double r_grade; // 내 평점 
 	
 	
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
 	public int getM_no() {
 		return m_no;
 	}
