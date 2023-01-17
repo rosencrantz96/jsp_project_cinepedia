@@ -22,7 +22,7 @@
 							</tr>
 							<tr>
 								<th>|리뷰 제목 입력|</th>
-								<td><input type="text" name="r_title" class="underlineRT" placeholder="영화를 등록하기 전에는 리뷰 등록이 되지 않습니다."></td>
+								<td><input type="text" name="r_title" class="underlineRT" placeholder="영화를 등록하기 전에는 리스트에 조회가 되지 않습니다."></td>
 							</tr>
 							<tr>
 								<th>|내 평점 입력|</th>
