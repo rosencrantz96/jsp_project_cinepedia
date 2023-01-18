@@ -9,9 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-	<div class="reWrap">
-		<div class="reSubWrap">
+<body class="wrap">
+	 <div class="biggerMainReview">
+		<div class="smallerMainReview">
 			<div>
 				<div class="reviewHeader">
 					<dl>
@@ -29,15 +29,24 @@
 				</div>
 				<div class="reviewInfo">${r.r_content}</div>
 			</div>
-			<div class="rbtn">
+			<!-- <div class="rbtn"> -->
 				<div class="Rbtn">
 					<a href="deleteReview?m_no=${r.m_no}">삭제</a>
 				</div>
 				<div class="Rbtn">
 					<a href="editReviewInfo?m_no=${r.m_no}">수정</a>
 				</div>
-			</div>
+			<!-- </div> -->
 		</div>
 	</div>
+	<script>
+		<c:if test="${param.error != null}">
+			alert("${param.error}")
+		</c:if>
+		<c:if test="${error != null}">
+			alert("${error}")
+		</c:if>
+	</script>
+	<script type="text/javascript" src="./script.js"></script>
 </body>
 </html>

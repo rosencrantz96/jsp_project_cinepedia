@@ -10,64 +10,56 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<div class="wrap">
-		<div class="subWrap">
-			<div class="headerMenuWrap">
-				<nav class="headerMenu">
-					<ul class="headerMenuGroup">
-						<li><a href="registMovie">MOVIE</a></li>
-						<li><a href="registReview">REVIEW</a></li>
-						<li><a href="list">LIST/EDIT</a></li>
-						<li><a href="home">HOME</a></li>
-					</ul>
-				</nav>
-			</div>
-			<div class="main">
-				<div>
-					<div class="movieInfo">
-						<dl>
-							<dt>번호:</dt>
-							<dd>${m.m_no}</dd>
-						</dl>
-						<dl>
-							<dt>영화 제목:</dt>
-							<dd>${m.m_title}</dd>
-						</dl>
-						<dl>
-							<dt>배우:</dt>
-							<dd>${m.m_actor}</dd>
-						</dl>
-						<dl>
-							<dt>감독:</dt>
-							<dd>${m.m_director}</dd>
-						</dl>
-						<dl>
-							<dt>국가:</dt>
-							<dd>${m.m_nation}</dd>
-						</dl>
-						<dl>
-							<dt>등급:</dt>
-							<dd>${m.m_grade}</dd>
-						</dl>
-						<dl>
-							<dt>장르:</dt>
-							<dd>${m.m_genre}</dd>
-						</dl>
-						<dl>
-							<dt>개봉 일자:</dt>
-							<dd>${m.m_date}</dd>
-						</dl>
-					</div>
+	<%@ include file="topmenu.jsp"%>
+	<section>
+		<div class="biggerMain">
+			<div class="smallerMain">
+
+				<div class="movieInfo">
+					<dl>
+						<dt>번호:</dt>
+						<dd>${m.m_no}</dd>
+					</dl>
+					<dl>
+						<dt>영화 제목:</dt>
+						<dd>${m.m_title}</dd>
+					</dl>
+					<dl>
+						<dt>배우:</dt>
+						<dd>${m.m_actor}</dd>
+					</dl>
+					<dl>
+						<dt>감독:</dt>
+						<dd>${m.m_director}</dd>
+					</dl>
+					<dl>
+						<dt>국가:</dt>
+						<dd>${m.m_nation}</dd>
+					</dl>
+					<dl>
+						<dt>등급:</dt>
+						<dd>${m.m_grade}</dd>
+					</dl>
+					<dl>
+						<dt>장르:</dt>
+						<dd>${m.m_genre}</dd>
+					</dl>
+					<dl>
+						<dt>개봉 일자:</dt>
+						<dd>${m.m_date}</dd>
+					</dl>
 				</div>
+
 				<div class="btn">
 					<a href="delete?m_no=${m.m_no}">삭제</a>
 				</div>
 				<div class="btn">
-					<a href="editMovieInfo?m_no=${m.m_no}">수정</a>
+					<a href="editMovieInfo?m_no=${m.m_no}" style="cursor: pointer">수정</a>
 				</div>
 			</div>
 		</div>
-	</div>
+		</div>
+	</section>
 	<script>
 		<c:if test="${param.error != null}">
 			alert("${param.error}")

@@ -19,12 +19,14 @@
 }
 
 /* 기본 설정 & index */
-.wrap {
+body {
   width: 1500px;
   height: 800px;
   margin: 0 auto;
-  background-color: #d9d9d9
+  background-color: #EBEBEB
 }
+
+
 
 .subWrap {
   margin: 0 auto;
@@ -96,6 +98,16 @@ section {
   background-color: #f5f5f5;
 }
 
+.biggerMainReview {
+  width: 1300px;
+  height: 700px;
+  margin: 0 auto;
+  position: relative;
+  top: 30px;
+  background-color: #f5f5f5;
+}
+
+
 .smallerMain {
   width: 1200px;
   height: 420px;
@@ -107,6 +119,16 @@ section {
   /* outline: 2px solid beige ; */
 }
 
+.smallerMainReview {
+  width: 1200px;
+  height: 560px;
+  margin: 0 auto;
+  position: relative;
+  top: 30px;
+  padding: 20px;
+  /* background-color: #d9d9d9; */
+  /* outline: 2px solid beige ; */
+}
 
 /* .main div {
   width: 1140px;
@@ -240,6 +262,13 @@ dt, dd {
 
 /* 영화 리뷰 등록 페이지 */
 
+.wrap {
+  width: 1500px;
+  height: 800px;
+  margin: 0 auto;
+  background-color: #d9d9d9
+}
+
 .reWrap {
 	width: 1500px;
 	height: 800px;
@@ -268,9 +297,10 @@ dt, dd {
 }
 
 .reviewHeader{
-	background-color: #f5f5f5;
-	width: 1200px;
+	background-color: #ebebeb;
+	width: 1180px;
 	height:130px;
+  padding: 10px;
   /* display: inline-block; */
   /* float: left; */
 }
@@ -278,6 +308,7 @@ dt, dd {
 .reviewHeader > dl, dt, dd {
   /* float: left; */
   margin-left: 10px;
+  padding: 2px;
 }
 
 .underlineRT {
@@ -298,11 +329,19 @@ dt, dd {
 }
 
 .reviewInfo {
-	background-color: #f5f5f5;
+	background-color: #ebebeb;
 	width: 1160px;
-	height: 310px;
+	height: 360px;
 	margin: 30px 0px 0px 0px;
-  padding: 20px;
+  padding: 20px 0px 0px 40px;
+}
+
+.reviewInfoRegist {
+	background-color: #ebebeb;
+	width: 1160px;
+	height: 350px;
+	margin: 30px 0px 0px 0px;
+  padding: 20px 20px 20px 20px;
 }
 
 .Rcont {
@@ -316,7 +355,7 @@ dt, dd {
 
 .cont{
   width: 1160px;
-  height: 310px;
+  height: 350px;
   resize: none;
   border: none;
   /* margin: 30px 0 0 0; */
@@ -337,19 +376,43 @@ dt, dd {
 	height: 40px;
 	width: 100px;
 	margin: auto;
-	display: inline-block;
-	top: 70px;
+	/* display: inline-block; */
+	top: 20px;
 	position: relative;
 	margin: 10px;
 	text-align: center;
 	margin: 3px;
 	font-size: 25px;
+  float: right;
   }
+
+  .RbtnEdit {
+    background-color: #d9d9d9;
+    font-family: 'GowunDodum', serif;
+    font-weight: 600;
+    height: 40px;
+    width: 100px;
+    margin: auto;
+    /* display: inline-block; */
+    top: 30px;
+    position: relative;
+    margin: 10px;
+    text-align: center;
+    margin: 3px;
+    font-size: 25px;
+    float: right;
+    right: 50px;
+    }
 
   .Rbtn a {
 	text-decoration-line: none;
 	color: #1c1c1c;
   }
+
+  .RbtnEdit a {
+    text-decoration-line: none;
+    color: #1c1c1c;
+    }
 
 /* 영화 리뷰 조회 페이지  */
 .reviewHeader2 {

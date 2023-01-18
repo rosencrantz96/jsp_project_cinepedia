@@ -5,17 +5,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Insert title here</title>
 <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-	<div class="reWrap">
-		<div class="reSubWrap">
-			<div>
-				<form name="frm" method="post"
-					action="updateReviewInfo?m_no=${r.m_no}">
-					<div class="reviewHeader">
-						<dl>
+<body class="wrap">
+	<div class="biggerMainReview">
+        <form name="frm" method="post" action="updateReviewInfo?m_no=${r.m_no}">
+            <div class="smallerMainReview">
+                <div>
+                    <div class="reviewHeader">
+                        <dl>
 							<dt>|영화 제목|</dt>
 							<dd>
 								<input type="text" value="${r.m_no}" name="r.title" readonly
@@ -36,22 +36,22 @@
 									class="underlineR">
 							</dd>
 						</dl>
-					</div>
-					<div class="reviewInfo">
-						<textarea name="r_content" placeholder="내용 입력" class="cont">${r.r_content}</textarea>
-					</div>
-					<div class="rbtn">
-						<div class="Rbtn">
-							<a onclick="chkReviewForm(); return false;" class="on">등록</a>
-						</div>
-						<div class="Rbtn">
-							<a href="home">취소</a>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    </div>
+                    <div class="reviewInfoRegist">
+                        <textarea name="r_content" placeholder="내용 입력" class="cont">${r.r_content}</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="rbtn"> -->
+                <div class="RbtnEdit">
+                    <a onclick="chkReviewForm(); return false;" class="on" style="cursor: pointer">등록</a>
+                </div>
+                <div class="RbtnEdit">
+                    <a href="home">취소</a>
+                </div>
+            <!-- </div> -->
+        </form>
+    </div>
 	<script>
 		<c:if test="${param.error != null}">
 			alert("${param.error}")
