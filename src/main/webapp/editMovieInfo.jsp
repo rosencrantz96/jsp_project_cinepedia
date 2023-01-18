@@ -75,7 +75,7 @@
 									<input type="text" value="${m.m_date}" name="m_date">
 								</dd>
 							</dl>
-						</div>
+						</div> 
 						<div class="btn">
 							<a onclick="chkForm(); return false" class="on">수정하기</a>
 						</div>

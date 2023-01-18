@@ -1,6 +1,5 @@
 package DTO;
 
-import java.sql.Date;
 
 public class Movie {
 	private int rownum;
