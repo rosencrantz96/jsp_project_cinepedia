@@ -3,274 +3,348 @@
 /* css 정리하기 */
 
 /* 폰트 */
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap')
+	;
+
 @font-face {
-  font-family: 'Fredericka the Great', cursive;
-  src: url('./font/FrederickatheGreat-Regular.ttf');
+	font-family: 'Fredericka the Great', cursive;
+	src: url('./font/FrederickatheGreat-Regular.ttf');
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap')
+	;
+
 @font-face {
-  font-family: 'Gowun Dodum', sans-serif;
-  src: url('./font/GowunDodum-Regular.ttf');
+	font-family: 'Gowun Dodum', sans-serif;
+	src: url('./font/GowunDodum-Regular.ttf');
 }
 
 /* 초기화 설정 */
-
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
-/* 기본 설정 & index */
+/* 기본 설정 & header & index */
 body {
-  width: 1500px;
-  height: 800px;
-  margin: 0 auto;
-  background-color: #EBEBEB
+	width: 1500px;
+	height: 800px;
+	margin: 0 auto;
+	background-color: #EBEBEB
 }
-
-
 
 .subWrap {
-  margin: 0 auto;
-  width: 1400px;
-  /* position: relative; */
-  /* top: 70px; */
-  /* z-index: 1; */
-  background-color: #f5f5f5;
+	margin: 0 auto;
+	width: 1400px;
+	/* position: relative; */
+	/* top: 70px; */
+	/* z-index: 1; */
+	background-color: #f5f5f5;
 }
 
 .headerMenuWrap {
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 .headerMenu {
-  /* width: 1200px; */
-  text-align: center;
-  margin: 0 auto;
-  padding: 30px 30px;
+	/* width: 1200px; */
+	text-align: center;
+	margin: 0 auto;
+	padding: 30px 30px;
 }
 
 .headerMenu ul {
-  text-align: center;
-  margin: auto;
-  padding: 0 0 0 0;
-  /* width: 1300; */
-  /* position: absolute; */
+	text-align: center;
+	margin: auto;
+	padding: 0 0 0 0;
+	/* width: 1300; */
+	/* position: absolute; */
 }
 
 .headerMenu ul li {
-  list-style: none;
-  display: inline-block;
-  font-size: 65px;
-  margin: 10px;
-  padding: 20px 20px 20px 20px;
-  font-family: 'Fredericka the Great', serif;
+	list-style: none;
+	display: inline-block;
+	font-size: 65px;
+	margin: 10px;
+	padding: 20px 20px 20px 20px;
+	font-family: 'Fredericka the Great', serif;
 }
 
 .headerMenu a {
-  text-decoration-line: none;
-  color: #1c1c1c;
+	text-decoration-line: none;
+	color: #1c1c1c;
 }
 
 .headerMenuGroup {
-  background-color: #d9d9d9;
-}
-
-/* .main {
-  width: 1200px;
-  height: 480px;
-  margin: 0 auto;
-} */
-
-section {
-  /* width: 1700px; */
-  height: 540px;
-  /* margin: 0 auto; */
-  /* position: relative; */
-  /* top: 30px; */
-  /* background-color: #f5f5f5; */
+	background-color: #d9d9d9;
 }
 
 .biggerMain {
-  width: 1300px;
-  height: 480px;
-  margin: 0 auto;
-  position: relative;
-  top: 30px;
-  background-color: #f5f5f5;
+	width: 1300px;
+	height: 480px;
+	margin: 0 auto;
+	position: relative;
+	top: 30px;
+	background-color: #f5f5f5;
 }
-
-.biggerMainReview {
-  width: 1300px;
-  height: 700px;
-  margin: 0 auto;
-  position: relative;
-  top: 30px;
-  background-color: #f5f5f5;
-}
-
 
 .smallerMain {
-  width: 1200px;
-  height: 420px;
-  margin: 0 auto;
-  position: relative;
-  top: 30px;
-  padding: 20px;
-  /* background-color: #d9d9d9; */
-  /* outline: 2px solid beige ; */
+	width: 1200px;
+	height: 420px;
+	margin: 0 auto;
+	position: relative;
+	top: 30px;
+	padding: 20px;
+	/* background-color: #d9d9d9; */
+	/* outline: 2px solid beige ; */
 }
 
-.smallerMainReview {
-  width: 1200px;
-  height: 560px;
-  margin: 0 auto;
-  position: relative;
-  top: 30px;
-  padding: 20px;
-  /* background-color: #d9d9d9; */
-  /* outline: 2px solid beige ; */
+section {
+	/* width: 1700px; */
+	height: 540px;
+	/* margin: 0 auto; */
+	/* position: relative; */
+	/* top: 30px; */
+	/* background-color: #f5f5f5; */
 }
 
-/* .main div {
-  width: 1140px;
-  height: 350px;
-  margin: 0 auto;
-  padding: 30px;
-  position: relative;
-  top: 10px;
-  background-color: #d9d9d9;
-  outline: 1px dotted black;
-} */
+/* list 조회 페이지 */
+.movie_list {
+	margin: 0 auto;
+	font-family: 'GowunDodum', serif;
+	font-size: 25px;
+	/* border-style: solid; */
+}
 
-/* .main p {
-  font-family: 'GowunDodum', serif;
-  font-size: 28px;
-} */
+.movie_list>table {
+	text-align: left;
+	/* border-style: dotted; */
+	border-spacing: 3px;
+	border-collapse: separate;
+}
+
+.title>a {
+	text-decoration-line: none;
+	color: #1c1c1c;
+}
+
+/* 버튼 */
+.btn {
+	float: right;
+	position: relative;
+	top: 10px;
+	margin: 10px 0px 10px 10px;
+	padding: 10px;
+	background-color: #d9d9d9;
+	font-family: 'GowunDodum', serif;
+	font-weight: 600;
+}
+
+.btn a {
+	text-decoration-line: none;
+	color: #1c1c1c;
+}
 
 /* 영화 등록 페이지 */
-
 .registM {
 	top: -30px;
 	/* height: 300px; */
 }
 
 .registMovieTable {
-  margin: 0 auto;
-  font-family: 'GowunDodum', serif;
-  font-size: 25px;
+	margin: 0 auto;
+	font-family: 'GowunDodum', serif;
+	font-size: 25px;
 }
 
-.registMovieTable > table {
-    margin: 0 auto;
+.registMovieTable>table {
+	margin: 0 auto;
 }
 
-.registMovieTable > table th {
-    text-align: left;
+.registMovieTable>table th {
+	text-align: left;
 }
-
-/* table {
-  margin: 0 auto;
-  font-family: 'GowunDodum', serif;
-  font-size: 25px;
-} */
 
 table th {
-  text-align: left;
+	text-align: left;
 }
 
 table input {
-  width: 400px;
-  height: 40px;
-  background-color: #f5f5f5;
+	width: 400px;
+	height: 40px;
+	background-color: #f5f5f5;
 }
 
 .underline {
-  border-top: none;
-  border-right: none;
-  border-bottom: dotted 1px #1c1c1c;
-  border-left: none;
-}
-
-.btn {
-  float: right;
-  position: relative;
-  top: 10px;
-  margin: 10px 0px 10px 10px;
-  padding: 10px;
-  background-color: #d9d9d9;
-  font-family: 'GowunDodum', serif;
-  font-weight: 600;
-}
-
-.btn a {
-  text-decoration-line: none;
-  color: #1c1c1c;
+	border-top: none;
+	border-right: none;
+	border-bottom: dotted 1px #1c1c1c;
+	border-left: none;
 }
 
 /* 등록된 영화 정보 페이지 */
-
-.movieInfoWrap {
-  float: left;
-  margin: auto;
-  padding: 20px;	
-  height: 300px;
-  width: 1120px;
-}
-
-.moviePoster, .movieInfo {
-  /* display: inline-block; */
-  float: left;
-  /* height: 300px; */
-}
-
-.moviePoster {
-  height: 350px;
-  width: 250px;
-  background-color: #f5f5f5;
-  margin-left: 30px;
-  margin-right: 120px;
+.movieInfo {
+	/* display: inline-block; */
+	float: left;
+	/* height: 300px; */
 }
 
 .movieInfo {
-  height: 310px;
-  width: 680px;
-  background-color: #f5f5f5;
-  /* margin-right: 30px; */
-  /* margin: 10px; */
-  /* padding-top: 20px; */
-  /* padding-left: 20px; */
-  padding: 20px;   
-  /* display: inline;  */
+	height: 310px;
+	width: 680px;
+	background-color: #f5f5f5;
+	/* margin-right: 30px; */
+	/* margin: 10px; */
+	/* padding-top: 20px; */
+	/* padding-left: 20px; */
+	padding: 20px;
+	/* display: inline;  */
 }
 
 dt, dd {
-  display: inline;
-  font-family: 'GowunDodum', serif;
-  font-size: 30px;
-  padding: auto;
+	display: inline;
+	font-family: 'GowunDodum', serif;
+	font-size: 30px;
+	padding: auto;
+}
+
+/* 리뷰 등록 페이지 */
+.wrap {
+	width: 1500px;
+	height: 800px;
+	margin: 0 auto;
+	background-color: #d9d9d9
+}
+
+.biggerMainReview {
+	width: 1300px;
+	height: 700px;
+	margin: 0 auto;
+	position: relative;
+	top: 30px;
+	background-color: #f5f5f5;
+}
+
+.smallerMainReview {
+	width: 1200px;
+	height: 560px;
+	margin: 0 auto;
+	position: relative;
+	top: 30px;
+	padding: 20px;
+	/* background-color: #d9d9d9; */
+	/* outline: 2px solid beige ; */
+}
+
+.reviewHeader {
+	background-color: #ebebeb;
+	width: 1180px;
+	height: 130px;
+	padding: 10px;
+	/* display: inline-block; */
+	/* float: left; */
+}
+
+.reviewHeader>dl, dt, dd {
+	/* float: left; */
+	margin-left: 10px;
+	padding: 2px;
+}
+
+.underlineRT {
+	height: 35px;
+	border-top: none;
+	border-right: none;
+	border-bottom: dotted 1px #1c1c1c;
+	border-left: none;
+	width: 350px;
+}
+
+.reviewInfoRegist {
+	background-color: #ebebeb;
+	width: 1160px;
+	height: 350px;
+	margin: 30px 0px 0px 0px;
+	padding: 20px 20px 20px 20px;
+}
+
+.cont {
+	width: 1160px;
+	height: 350px;
+	resize: none;
+	border: none;
+	/* margin: 30px 0 0 0; */
+	/* padding: 20px; */
+	background-color: #f5f5f5;
+}
+
+/* 리뷰 페이지 버튼 */
+.Rbtn {
+	background-color: #d9d9d9;
+	font-family: 'GowunDodum', serif;
+	font-weight: 600;
+	height: 40px;
+	width: 100px;
+	margin: auto;
+	/* display: inline-block; */
+	top: 20px;
+	position: relative;
+	margin: 10px;
+	text-align: center;
+	margin: 3px;
+	font-size: 25px;
+	float: right;
+}
+
+.Rbtn a {
+	text-decoration-line: none;
+	color: #1c1c1c;
+}
+
+/* 리뷰 수정 페이지 */
+.underlineR {
+	height: 35px;
+	border-top: none;
+	border-right: none;
+	border-bottom: dotted 1px #1c1c1c;
+	border-left: none;
+}
+
+/* 리뷰 수정 페이지 버튼*/
+.RbtnEdit {
+	background-color: #d9d9d9;
+	font-family: 'GowunDodum', serif;
+	font-weight: 600;
+	height: 40px;
+	width: 100px;
+	margin: auto;
+	/* display: inline-block; */
+	top: 30px;
+	position: relative;
+	margin: 10px;
+	text-align: center;
+	margin: 3px;
+	font-size: 25px;
+	float: right;
+	right: 50px;
+}
+
+.RbtnEdit a {
+	text-decoration-line: none;
+	color: #1c1c1c;
 }
 
 /* 영화 정보 수정 페이지 */
 .editMovieInfo {
-    margin: 0 auto;
-  font-family: 'GowunDodum', serif;
-  font-size: 25px;
+	margin: 0 auto;
+	font-family: 'GowunDodum', serif;
+	font-size: 25px;
 }
 
-.editMovieInfo > table {
-    text-align: left;
-}
-
-/* 영화 리뷰 등록 페이지 */
-
-.wrap {
-  width: 1500px;
-  height: 800px;
-  margin: 0 auto;
-  background-color: #d9d9d9
+.editMovieInfo>table {
+	text-align: left;
 }
 
 .reWrap {
@@ -291,45 +365,13 @@ dt, dd {
 }
 
 .reSubWrap div {
- /*  width: 1200px;
+	/*  width: 1200px;
   height: 500px; */
-  margin: 0 auto;
-  padding: 30px;
-  position: relative;
-  top: 60px;
-  background-color: #d9d9d9;
-}
-
-.reviewHeader{
-	background-color: #ebebeb;
-	width: 1180px;
-	height:130px;
-  padding: 10px;
-  /* display: inline-block; */
-  /* float: left; */
-}
-
-.reviewHeader > dl, dt, dd {
-  /* float: left; */
-  margin-left: 10px;
-  padding: 2px;
-}
-
-.underlineRT {
-  height: 35px;
-  border-top: none;
-  border-right: none;
-  border-bottom: dotted 1px #1c1c1c;
-  border-left: none;
-  width: 350px;
-}
-
-.underlineR {
-  height: 35px;
-  border-top: none;
-  border-right: none;
-  border-bottom: dotted 1px #1c1c1c;
-  border-left: none;
+	margin: 0 auto;
+	padding: 30px;
+	position: relative;
+	top: 60px;
+	background-color: #d9d9d9;
 }
 
 .reviewInfo {
@@ -337,86 +379,27 @@ dt, dd {
 	width: 1160px;
 	height: 360px;
 	margin: 30px 0px 0px 0px;
-  padding: 20px 0px 0px 40px;
-}
-
-.reviewInfoRegist {
-	background-color: #ebebeb;
-	width: 1160px;
-	height: 350px;
-	margin: 30px 0px 0px 0px;
-  padding: 20px 20px 20px 20px;
+	padding: 20px 0px 0px 40px;
 }
 
 .Rcont {
-  width: 1160px;
-  height: 310px;
-  resize: none;
-  border: none;
-  /* padding: 20px; */
-  background-color: #f5f5f5;
+	width: 1160px;
+	height: 310px;
+	resize: none;
+	border: none;
+	/* padding: 20px; */
+	background-color: #f5f5f5;
 }
 
-.cont{
-  width: 1160px;
-  height: 350px;
-  resize: none;
-  border: none;
-  /* margin: 30px 0 0 0; */
-  /* padding: 20px; */
-  background-color: #f5f5f5;
-} 
-  
 .rbtn {
 	position: relative;
 	left: 50%;
 	margin-left: -100px;
 }
 
-  .Rbtn {
-	background-color: #d9d9d9;
-	font-family: 'GowunDodum', serif;
-	font-weight: 600;
-	height: 40px;
-	width: 100px;
-	margin: auto;
-	/* display: inline-block; */
-	top: 20px;
-	position: relative;
-	margin: 10px;
-	text-align: center;
-	margin: 3px;
-	font-size: 25px;
-  float: right;
-  }
 
-  .RbtnEdit {
-    background-color: #d9d9d9;
-    font-family: 'GowunDodum', serif;
-    font-weight: 600;
-    height: 40px;
-    width: 100px;
-    margin: auto;
-    /* display: inline-block; */
-    top: 30px;
-    position: relative;
-    margin: 10px;
-    text-align: center;
-    margin: 3px;
-    font-size: 25px;
-    float: right;
-    right: 50px;
-    }
 
-  .Rbtn a {
-	text-decoration-line: none;
-	color: #1c1c1c;
-  }
 
-  .RbtnEdit a {
-    text-decoration-line: none;
-    color: #1c1c1c;
-    }
 
 /* 영화 리뷰 조회 페이지  */
 .reviewHeader2 {
@@ -430,25 +413,4 @@ dt, dd {
 	width: 1200px;
 	height: 320px;
 	margin: 30px 0px 0px 0px;
-}
-
-/* 등록된 리뷰 조회 페이지 */
-
-.movie_list {
-    margin: 0 auto;
-    font-family: 'GowunDodum', serif;
-    font-size: 25px;
-    /* border-style: solid; */
-}
-
-.movie_list > table {
-    text-align: left;
-    /* border-style: dotted; */
-    border-spacing: 3px;
-    border-collapse: separate;
-}
-
-.title > a {
-	text-decoration-line: none;
-	color: #1c1c1c;
 }
